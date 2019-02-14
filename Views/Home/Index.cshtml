@@ -1,0 +1,25 @@
+﻿@model LinkShortener.Models.Link
+@{
+    ViewData["Title"] = "Home Page";
+}
+<hr />
+<div class="row bg-light m-2">
+    <div class="col-md-6 offset-md-3 mb-5 my-5">
+        <form id="formFullUrl" method="post" novalidate="novalidate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-group">
+
+                <input type="text" id="fullUrl" placeholder="Url" asp-for="FullUrl" class="form-control" />
+                <div class="input-group-append">
+                    <button id="btnShort" type="button" class="btn btn-primary">Short</button>
+                </div>
+            </div>
+            <span asp-validation-for="FullUrl" class="text-danger"></span>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/CreateLink.js"></script>
+}

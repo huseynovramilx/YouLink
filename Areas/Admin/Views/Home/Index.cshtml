@@ -1,0 +1,51 @@
+﻿@model List<LinkShortener.Areas.Admin.Models.UserPayoutVM>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h2>Payouts</h2>
+<form asp-action="SubmitPayouts">
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Money</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model is null || Model.Count == 0)
+                    {
+                        <tr>No payout to show</tr>
+                    }
+                    else
+                    {
+                        foreach (var userPayout in Model)
+                        {
+                            <tr>
+                                <td>@userPayout.Email</td>
+                                <td>@userPayout.Payout</td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+    @{
+
+        <div class="form-group float-right">
+            @if (Model.Count == 0)
+            {
+                <input type="submit" asp-action="SubmitPayouts" value="Submit Payouts" disabled="disabled" class="btn btn-primary disabled" />
+
+            }
+            else
+            {
+                <input type="submit" asp-action="SubmitPayouts" value="Submit Payouts" class="btn btn-primary" />
+            }
+        </div>
+    }
+</form>
