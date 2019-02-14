@@ -65,10 +65,6 @@
             "Octicons.TagHelper": {
               "target": "Package",
               "version": "[1.0.0, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.10.0, )"
             }
           },
           "imports": [
