@@ -14,23 +14,28 @@ namespace LinkShortener.Models
     {
         public ApplicationUser()
         {
-            Links = new List<Link>();
+           
         }
-        [NotMapped]
-        public decimal Money
-        {
-            get
-            {
-                
-                decimal money = 0;
-                foreach (Link link in Links)
-                {
-                    money += link.Clicks.Count;
-                }
-                return money;
-            }
-        }
+        private readonly ApplicationDbContext _context;
+        public string ReferrerId { get; set; }
+
+        [ForeignKey("ReferrerId")]
+        public virtual ApplicationUser Referrer { get; private set; }
+
+        [InverseProperty("Referrer")]
+        public virtual ICollection<ApplicationUser> Referrals { get; private set; }
+
         [InverseProperty("Owner")]
         public virtual ICollection<Link> Links { get; private set; }
+
+        public RecipientType RecipientType{get; set;}
+        public string Receiver{get ;set;}
+        [DataType(DataType.Currency)]
+        public decimal EarnedMoney { get; set; }
+
+        public decimal RequestedMoney { get; set; }
+
+        public decimal ReferralMoney { get; set; }
+
     }
 }

@@ -1,28 +1,33 @@
-﻿using System;
+﻿using LinkShortener.Data;
+using LinkShortener.Models;
+using LinkShortener.Common;
+using LinkShortener.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LinkShortener.Data;
-using LinkShortener.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using LinkShortener.Areas.Dashboard.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LinkShortener.Areas.Dashboard.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [Area("Dashboard")]
     public class HomeController : Controller
     {
-
+        private readonly AppOptions _options;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public HomeController(IOptionsMonitor<AppOptions> optionsAccessor, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+            _options = optionsAccessor.CurrentValue;
         }
 
         public IActionResult Index()
@@ -33,40 +38,131 @@ namespace LinkShortener.Areas.Dashboard.Controllers
             return View(links);
         }
 
-        public async Task<JsonResult> GetClicksLastHourAsync(string linkId)
+        public async Task<JsonResult> GetBalanceAsync()
         {
-            if (linkId is null)
-                return await GetAllClicksLastHourAsync();
-            DateTime now = DateTime.Now;
-            string nowStr = now.ToShortTimeString();
-            var clicks = await _context.Clicks
-                .Where(c => c.LinkId == linkId)
-                .Where(c=> c.DateTime > now.AddHours(-1))
-                .GroupBy(c=>c.DateTime.ToShortTimeString())
-                .Select(group => 
-                new {
-                    Time = group.Key,
-                    Count = group.Count()
-                })
-                .ToListAsync();
-            return Json(new { clicks, now = nowStr });
-        }
-        private async Task<JsonResult> GetAllClicksLastHourAsync()
-        {
-            DateTime now = DateTime.Now;
             string userId = _userManager.GetUserId(User);
-            var clicks = await _context.Clicks
-                .Where(c => c.Link.OwnerId == userId)
-                .Where(c => c.DateTime > DateTime.Now.AddHours(-1))
-                .GroupBy(c => c.DateTime.ToShortTimeString())
-                .Select(group =>
-                new {
-                    Time = group.Key,
-                    Count = group.Count()
-                })
-                .ToListAsync();
-            string nowStr = now.ToShortTimeString();
-            return Json(new { clicks, now= nowStr});
+            decimal money = await _context.GetBalanceAsync(userId);
+            return Json(money);
+
+        }
+
+        public async Task<JsonResult> GetLastHourClicksAsync(string linkId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            DateTime first = DateTime.Now.AddHours(-1);
+        
+            var clicks = await _context.GetLastHourClicksAsync(linkId, userId, first);
+
+            return Json(clicks);
+        }
+
+        public async Task<JsonResult> GetLastDayClicksAsync(string linkId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            DateTime first = DateTime.Now.AddDays(-1);
+
+            var clicks = await _context.GetLastDayClicksAsync(linkId, userId, first);
+
+            return Json(clicks);
+        }
+
+        public async Task<JsonResult> GetLastWeekClicksAsync(string linkId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            DateTime first = DateTime.Now.AddDays(-7);
+
+            var clicks = await _context.GetLastWeekClicksAsync(linkId, userId, first);
+
+            return Json(clicks);
+        }
+
+        public async Task<JsonResult> GetLastMonthClicksAsync(string linkId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            DateTime first = DateTime.Now.AddDays(-31);
+
+            var clicks = await _context.GetLastMonthClicksAsync(linkId, userId, first);
+
+            return Json(clicks);
+        }
+
+        public async Task<JsonResult> GetLastYearClicksAsync(string linkId)
+        {
+            string userId = _userManager.GetUserId(User);
+
+            DateTime first = DateTime.Now.AddYears(-1);
+
+            var clicks = await _context.GetLastYearClicksAsync(linkId, userId, first);
+
+            return Json(clicks);
+        }
+
+        public IActionResult Withdraw()
+        {
+            PaymentMethods methods =
+                new PaymentMethods("~/xml");
+            ApplicationUser user = _userManager.GetUserAsync(User).Result;
+            RequestVM requestVM = new RequestVM();
+            if (user.RecipientType is null)
+            {
+
+            }
+            else
+            {
+                requestVM.RecipientTypeID = user.RecipientType.ID;
+                requestVM.Receiver = user.Receiver;
+            }
+            ViewBag.RecipientTypeId = _context.RecipientTypes
+            .Select(rt => new SelectListItem
+            {
+                Text = rt.Name,
+                Value = rt.ID.ToString()
+            });
+            return View(requestVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Withdraw(RequestVM requestVM)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = await _userManager.GetUserAsync(User);
+                decimal money = await _context.GetBalanceAsync(user.Id);
+                if (money >= requestVM.Money)
+                {
+                    user.Receiver = requestVM.Receiver;
+                    user.RecipientType = await _context.RecipientTypes
+                    .FirstAsync(rt => rt.ID == requestVM.RecipientTypeID);
+
+                    PayoutRequest payoutRequest = new PayoutRequest
+                    {
+                        Money = requestVM.Money,
+                        OwnerId = user.Id,
+                        Paid = false
+                    };
+                    await _context.PayoutRequests.AddAsync(payoutRequest);
+                    user.RequestedMoney += requestVM.Money;
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+
+                }
+            }
+
+            return View(requestVM);
+        }
+
+
+        public async Task<decimal> Some()
+        {
+            string userId = _userManager.GetUserId(User);
+            decimal money = await _context.GetBalanceAsync(userId);
+            return money;
         }
     }
 }

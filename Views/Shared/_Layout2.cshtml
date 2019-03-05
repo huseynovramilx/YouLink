@@ -16,18 +16,40 @@
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
     </environment>
     <link rel="stylesheet" href="~/css/dashboard.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicons/favicon-16x16.png">
+    <link rel="manifest" href="~/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <nav class="navbar navbar-dark fixed-top bg-magenta flex-md-nowrap p-0 shadow">
+        <a class="navbar-nav col-sm-3 col-md-2 mr-0" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/logo2.svg" />
+        </a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link">Sign out</button>
+                </form>
             </li>
         </ul>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="position:relative; top:20px;">
         <div class="row">
             <partial name="nav" />
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">

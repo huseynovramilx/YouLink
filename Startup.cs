@@ -43,7 +43,11 @@ namespace LinkShortener {
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>(); */
 
-            services.AddMvc().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
+            services.AddOptions();
+            services.Configure<AppOptions>(Configuration);
+
+            services.AddMvc()
+                .SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
 
             services.AddSingleton (factory => new PayPalHttpClientFactory (
                 Configuration["Paypal:ClientId"],
@@ -68,6 +72,7 @@ namespace LinkShortener {
             app.UseCookiePolicy ();
             CreateRoles(provider);
             app.UseAuthentication ();
+            
             app.UseMvc (routes => {
                 routes.MapRoute (
                     name: "areas",

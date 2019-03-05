@@ -9,22 +9,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LinkShortener.Services;
 using LinkShortener.Models;
+using Microsoft.Extensions.Options;
 
 namespace LinkShortener.Areas.Admin.Controllers
 {
-   [Area("Admin")]
+    [Area("Admin")]
     public class HomeController : AdminBaseController
     {
+
+        private readonly AppOptions _options;
         private readonly ApplicationDbContext _context;
         private readonly PayPalHttpClientFactory _clientFactory;
-
-        private List<UserPayoutVM> _userPayouts;
-        public HomeController(ApplicationDbContext context, PayPalHttpClientFactory clientFactory)
+        public HomeController(IOptionsMonitor<AppOptions> optionsAccessor, ApplicationDbContext context, PayPalHttpClientFactory clientFactory)
         {
+            _options = optionsAccessor.CurrentValue;
             _context = context;
             _clientFactory = clientFactory;
+        }
+
+        private List<UserPayoutVM> GetCurrentPayouts()
+        {
             PayoutBatch lastPayoutBatch = _context.PayoutBatches.OrderBy(p => p.ID).LastOrDefault();
-            _userPayouts = _context.Links
+            List<UserPayoutVM> userPayouts = _context.Links
             .Include(l => l.Owner)
             .Include(l => l.Clicks)
             .GroupBy(l => l.OwnerId)
@@ -32,21 +38,28 @@ namespace LinkShortener.Areas.Admin.Controllers
             .Select(group => new UserPayoutVM
             {
                 Email = group.First().Owner.Email,
-                Payout = group.
-                Sum(l => l.Clicks.Where(
-                    c => (c.DateTime <= DateTime.Now.AddDays(-1)&&(lastPayoutBatch==null||c.DateTime >= lastPayoutBatch.ID)))
-                .Count())
-            }).Where(u => u.Payout !=0).ToList();
+                Payout = _options.MoneyPerClick * group.Sum(l => l.Clicks.Where(
+                      c => (c.DateTime <= DateTime.Now.AddDays(-1) && (lastPayoutBatch == null || c.DateTime >= lastPayoutBatch.ID)))
+                  .Count())
+            }).Where(u => u.Payout != 0).ToList();
+            if (userPayouts == null)
+                return new List<UserPayoutVM>();
+
+            return userPayouts;
 
         }
+
+
         public IActionResult Index()
         {
-            return View(_userPayouts);
+            return View(GetCurrentPayouts());
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> SubmitPayouts(){
-            PayoutBatch payoutBatch = await _context.AddPayoutBatch(_userPayouts);
+        public async Task<IActionResult> SubmitPayouts()
+        {
+            PayoutBatch payoutBatch = await _context.AddPayoutBatch(GetCurrentPayouts());
             if (payoutBatch.PayoutPaypalBatchId == null)
             {
                 PayPalHttpClient client = _clientFactory.GetClient();
@@ -62,7 +75,7 @@ namespace LinkShortener.Areas.Admin.Controllers
                 }
             }
 
-            return View(viewName: "Index");
+            return View(viewName: "Index",model: new List<UserPayoutVM>());
         }
     }
 }

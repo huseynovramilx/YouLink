@@ -2,55 +2,149 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
 }
+
+.mag-nav-link {
+    color: #a875bc !important;
+}
+
+.nav-link {
+    font-family: Lora;
+    font-size: 20px;
+}
+
+.card-title {
+    color: #a875bc !important;
+    font-family: Merriweather;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #A875BC;
+    color:white;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #a875bc;
+    border-color: #a875bc;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #6E3087;
+        border-color: #6E3087;
+    }
+
+    .btn-primary:focus, .btn-primary.focus {
+        box-shadow: 0 0 0 0.2rem rgba(168, 117, 188, 0.5);
+    }
+
+    .btn-primary.disabled, .btn-primary:disabled {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+    .show > .btn-primary.dropdown-toggle {
+        color: #fff;
+        background-color: #6E3087;
+        border-color: #a875bc;
+    }
+
+        .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-primary.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.2rem rgba(168, 117, 188, 0.5);
+        }
+.matthead {
+    background-image: url('/images/mattheadBack.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 357px;
+}
+
+.card-title {
+    color: #581B70;
+}
+
+.bg-magenta {
+    background-color: #A875BC !important;
+}
+
+a.bg-magenta:hover, a.bg-magenta:focus,
+button.bg-magenta:hover,
+button.bg-magenta:focus {
+    background-color: #A875BC !important;
+}
+
+.sidebar .nav-link{
+    font-size:25px;
+}
+
+.sidebar .nav-link {
+    color: #874C9E !important;
+}
+
+.sidebar .nav-link:hover {
+    color: white !important;
+    background-color: #A875BC;
+}
+
+    .sidebar .nav-link:active {
+        color: #581B70 !important;
+    }

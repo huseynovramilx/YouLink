@@ -10,11 +10,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using LinkShortener.Data;
 
 namespace LinkShortener.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    [ValidateAntiForgeryToken]
+ //   [ValidateAntiForgeryToken]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -22,22 +23,28 @@ namespace LinkShortener.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
+        private readonly ApplicationDbContext _context;
+
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         [BindProperty]
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
+
+        public string RefererId { get; set; }
 
         public class InputModel
         {
@@ -56,11 +63,14 @@ namespace LinkShortener.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string ReferrerId { get; set; }
         }
 
-        public void OnGet(string returnUrl = null)
+        public void OnGet([FromRoute]string referrerId = null, string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            RefererId = referrerId; 
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -68,7 +78,7 @@ namespace LinkShortener.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, ReferrerId = Input.ReferrerId};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -83,8 +93,12 @@ namespace LinkShortener.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");*/
-
+                    
+                    
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                   
+                    await _context.AddReferrerLinkAsync(user.Id, Request.Scheme+"://"+Request.Host.Value+"/Identity/Account/Register");
+                    await _context.SaveChangesAsync();
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

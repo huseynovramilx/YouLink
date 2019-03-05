@@ -87,3 +87,15 @@ C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\PayoutBatches\Edit.g.cshtml.cs
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\PayoutBatches\Index.g.cshtml.cs
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Admin\Views\Shared\nav.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Home\Withdraw.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Shared\nav.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Links\Create.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Links\Delete.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Links\Details.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Links\Edit.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\Links\Index.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Create.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Delete.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Details.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Edit.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Index.g.cshtml.cs

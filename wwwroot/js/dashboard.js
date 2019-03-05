@@ -1,9 +1,14 @@
 ﻿/* globals Chart:false, feather:false */
-function fillChart(labels, values) {
+let select;
+let linkId='';
+
+
+
+function fillChart(labels, values, id) {
     //feather.replace();
 
     // Graphs
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById(id);
     // eslint-disable-next-line no-unused-vars
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -11,11 +16,12 @@ function fillChart(labels, values) {
             labels: labels,
             datasets: [{
                 data: values,
-                lineTension: 0,
+                steppedLine: false,
+                pointRadius: 0,
                 backgroundColor: 'transparent',
-                borderColor: '#007bff',
-                borderWidth: 4,
-                pointBackgroundColor: '#007bff'
+                borderColor: '#8BBB3E',
+                borderWidth: 2,
+                pointBackgroundColor: '#FFF09B'
             }]
         },
         options: {
@@ -24,47 +30,193 @@ function fillChart(labels, values) {
                     ticks: {
                         beginAtZero: false
                     }
+                }],
+                xAxes: [{
+                    display:false
                 }]
             },
             legend: {
                 display: false
-            }
+            },
+            tooltips: {
+                mode: 'nearest',
+                intersect:false
+            },
+            events:['click', 'mousemove']
         }
     });
 }
 
-function getStats(linkId){
-
-    let labels = [];
-    let values = [];
-    for (var i = 0; i < 60; i++) {
-        labels.push("");
-        values.push(0);
-    }
-    $.ajax({
-        url: "Dashboard/Home/GetClicksLastHourAsync",
+function getLastHourStats() {
+        $.ajax({
+        url: "/Dashboard/Home/GetLastHourClicksAsync",
         data:
         {
-            "linkId":linkId
+            "linkId": linkId
         },
         method: "GET",
         success: function (data) {
-            let timeNow = data.now;
-            $.each(data.clicks, function () {
-                let time_this = this.time;
-                let m_now =Number.parseInt(timeNow.substr(timeNow.indexOf(":") + 1, 2));
-                let m_this =Number.parseInt(time_this.substr(time_this.indexOf(":") + 1, 2));
-                let i = (m_this + (59 - m_now))%60;
-                labels[i] = this.time;
-                values[i] = this.count;
-            });
-            fillChart(labels, values);
+            fillChart(data.labels, data.values, 'chartHour'+linkId);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+        });
+}
+
+function getLastDayStats() {
+    $.ajax({
+        url: "/Dashboard/Home/GetLastDayClicksAsync",
+        data:
+        {
+            "linkId": linkId
+        },
+        method: "GET",
+        success: function (data) {
+            fillChart(data.labels, data.values, 'chartDay'+linkId);
+        },
+        error: function (error) {
+            console.log(error);
         }
     });
-
-    
 }
+
+function getLastWeekStats() {
+    $.ajax({
+        url: "/Dashboard/Home/GetLastWeekClicksAsync",
+        data:
+        {
+            "linkId": linkId
+        },
+        method: "GET",
+        success: function (data) {
+            fillChart(data.labels, data.values, 'chartWeek'+linkId);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getLastMonthStats() {
+    $.ajax({
+        url: "/Dashboard/Home/GetLastMonthClicksAsync",
+        data:
+        {
+            "linkId": linkId
+        },
+        method: "GET",
+        success: function (data) {
+            fillChart(data.labels, data.values, 'chartMonth'+linkId);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+function getLastYearStats() {
+    $.ajax({
+        url: "/Dashboard/Home/GetLastYearClicksAsync",
+        data:
+        {
+            "linkId": linkId
+        },
+        method: "GET",
+        success: function (data) {
+            fillChart(data.labels, data.values, 'chartYear' + linkId);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+
+function getMoneyInfo() {
+    let moneyDiv = $("#money");
+
+    $.ajax({
+        url: "/Dashboard/Home/GetBalanceAsync",
+        method: "GET",
+        async: true,
+        success: function (data) {
+            moneyDiv.html(data + "$");
+        },
+        error: function (error) {
+            console.log(error.status);
+            console.log(error.statusText);
+        }
+    });
+}
+
+
+function getGraph() {
+    $('canvas:not(.d-none)').addClass('d-none');
+    let element = $('.div');
+    if (select === 1) {
+        element = $('#chartHour'+linkId);
+        if(element.attr('data-loaded')==='0'){
+            getLastHourStats();
+        }
+    }
+    else if (select === 2) {
+        element = $('#chartDay'+linkId);
+        if(element.attr('data-loaded')==='0'){
+            getLastDayStats();
+        }
+    }
+    else if (select === 3) {
+        element = $('#chartWeek'+linkId);
+        if(element.attr('data-loaded')==='0'){
+            getLastWeekStats();
+        }
+    }
+    else if (select === 4) {
+        element = $('#chartMonth'+linkId);
+        if(element.attr('data-loaded')==='0'){
+            getLastMonthStats();
+        }
+    }
+    else if (select === 5) {
+        element = $('#chartYear'+linkId);
+        if(element.attr('data-loaded')==='0'){
+            getLastYearStats();
+        }
+    }
+    element.data('loaded', 1);
+    element.removeClass('d-none');
+}
+
+
+function getAllCharts() {
+    getLastHourStats();
+    getLastDayStats();
+    getLastWeekStats();
+    getLastMonthStats();
+    getLastYearStats();
+}
+
+
+function getChart(LinkId){
+    linkId = LinkId;
+    getGraph();
+}
+
+
+
+
 $(document).ready(function () {
     'use strict';
-    getStats(null);
+    $(".dropdown-item").click(function () {
+
+        $("#ddText").html($(this).text());
+        $('.dropdown-item').removeClass('active');
+        $(this).addClass('active');
+
+        select = $(this).data('val');
+        getGraph();
+    });
+    getMoneyInfo();
+    getAllCharts();
 }());

@@ -10,10 +10,10 @@ namespace LinkShortener.Models
 {
     public class Link
     { 
-
         public Link()
         {
             Clicks = new List<Click>();
+            isReferral = false;
         }
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,7 +25,6 @@ namespace LinkShortener.Models
         public virtual ICollection<Click> Clicks { get; set; }
 
         [Required]
-        [DataType(DataType.Url)]
         [Url]
         public string FullUrl { get; set; }
 
@@ -34,5 +33,15 @@ namespace LinkShortener.Models
 
         [ForeignKey("OwnerId")]
         public virtual ApplicationUser Owner { get; set; }
+
+        public bool isReferral{get; set;}
+    }
+
+
+    public class ReferralLink:Link{
+        public ReferralLink(){
+            Clicks = new List<Click>();
+            isReferral = true;
+        }
     }
 }

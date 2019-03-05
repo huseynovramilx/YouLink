@@ -10,16 +10,40 @@
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span data-feather="calendar"></span>
+                <span id="ddText">This hour</span>
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#" data-val="1">This hour</a>
+                <a class="dropdown-item" href="#" data-val="2">This day</a>
+                <a class="dropdown-item" href="#" data-val="3">This week</a>
+                <a class="dropdown-item" href="#" data-val="4">This month</a>
+                <a class="dropdown-item" href="#" data-val="5">This year</a>
+            </div>
+        </div>
     </div>
+
 </div>
+@{
+    foreach (var link in Model)
+    {
+        <canvas class="my-4 w-100 d-none" id=@("chartHour"+link.Id) data-loaded="0" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100 d-none" id=@("chartDay"+link.Id) data-loaded="0" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100 d-none" id=@("chartWeek"+link.Id) data-loaded="0" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100 d-none" id=@("chartMonth"+link.Id) data-loaded="0" width="900" height="380"></canvas>
+        <canvas class="my-4 w-100 d-none" id=@("chartYear"+link.Id) data-loaded="0" width="900" height="380"></canvas>
+    }
+}
+<canvas class="my-4 w-100" id="chartHour" data-loaded="1" width="900" height="380"></canvas>
+<canvas class="my-4 w-100 d-none" id="chartDay" data-loaded="1" width="900" height="380"></canvas>
+<canvas class="my-4 w-100 d-none" id="chartWeek" data-loaded="1" width="900" height="380"></canvas>
+<canvas class="my-4 w-100 d-none" id="chartMonth" data-loaded="1" width="900" height="380"></canvas>
+<canvas class="my-4 w-100 d-none" id="chartYear" data-loaded="1" width="900" height="380"></canvas>
 
-<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-<h2>Section title</h2>
+<h2>Links</h2>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>
@@ -37,7 +61,7 @@
                         <td>https://localhost:5001/@link.Id</td>
                         <td>@link.FullUrl</td>
                         <td>@link.Clicks.Count</td>
-                        <td><button onclick="getStats(@link.Id)" class="btn btn-light"><octicon symbol="Graph"></octicon></button></td>
+                        <td><button onclick="getChart('@link.Id')" class="btn btn-light"><octicon symbol="Graph"></octicon></button></td>
                     </tr>
                 }
             }

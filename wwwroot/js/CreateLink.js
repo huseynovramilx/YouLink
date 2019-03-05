@@ -12,7 +12,7 @@
                     "FullUrl": link
                 },
                 success: function (id) {
-                    let shortLink = "https://localhost:5001/" + id;
+                    let shortLink = window.location.protocol+"//"+window.location.host +"/"+ id;
                     fullUrl.val(shortLink);
                     btnShort.html("Copy");
                     btnShort.off("click");

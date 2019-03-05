@@ -29,6 +29,8 @@ namespace LinkShortener.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<decimal>("EarnedMoney");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -50,6 +52,16 @@ namespace LinkShortener.Data.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
+                    b.Property<string>("Receiver");
+
+                    b.Property<int?>("RecipientTypeID");
+
+                    b.Property<decimal>("ReferralMoney");
+
+                    b.Property<string>("ReferrerId");
+
+                    b.Property<decimal>("RequestedMoney");
+
                     b.Property<string>("SecurityStamp");
 
                     b.Property<bool>("TwoFactorEnabled");
@@ -66,6 +78,10 @@ namespace LinkShortener.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("RecipientTypeID");
+
+                    b.HasIndex("ReferrerId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -101,6 +117,8 @@ namespace LinkShortener.Data.Migrations
                         .HasDefaultValue(1);
 
                     b.Property<string>("OwnerId");
+
+                    b.Property<bool>("isReferral");
 
                     b.HasKey("Id");
 
@@ -158,6 +176,42 @@ namespace LinkShortener.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("PayoutBatches");
+                });
+
+            modelBuilder.Entity("LinkShortener.Models.PayoutRequest", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("Money");
+
+                    b.Property<string>("OwnerId");
+
+                    b.Property<bool>("Paid");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("PayoutRequests");
+                });
+
+            modelBuilder.Entity("LinkShortener.Models.RecipientType", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Method")
+                        .IsRequired();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("ID");
+
+                    b.ToTable("RecipientTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -270,6 +324,17 @@ namespace LinkShortener.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("LinkShortener.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("LinkShortener.Models.RecipientType", "RecipientType")
+                        .WithMany()
+                        .HasForeignKey("RecipientTypeID");
+
+                    b.HasOne("LinkShortener.Models.ApplicationUser", "Referrer")
+                        .WithMany("Referrals")
+                        .HasForeignKey("ReferrerId");
+                });
+
             modelBuilder.Entity("LinkShortener.Models.Click", b =>
                 {
                     b.HasOne("LinkShortener.Models.Link", "Link")
@@ -291,6 +356,13 @@ namespace LinkShortener.Data.Migrations
                         .WithMany("Payouts")
                         .HasForeignKey("PayoutBatchId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LinkShortener.Models.PayoutRequest", b =>
+                {
+                    b.HasOne("LinkShortener.Models.ApplicationUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

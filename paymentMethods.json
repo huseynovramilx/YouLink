@@ -1,0 +1,12 @@
+{
+  "methods": [
+    {
+      "name": "Paypal",
+      "recipientTypes": [ "Email", "PayPalId", "Phone Number" ]
+    }
+    {
+      "name": "Stripe",
+      "recipientTypes": [ "Email", "StripeId" ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<methods>
+  <method>
+    <name>PayPal</name>
+    <recTypes>
+      <recType>
+        <name>Email</name>
+      </recType>
+      <recType>
+        <name>PaypalId</name>
+      </recType>
+      <recType>
+        Phone Number
+      </recType>
+    </recTypes>
+  </method>
+</methods>
