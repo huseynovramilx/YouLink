@@ -37,27 +37,64 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <nav class="navbar navbar-dark fixed-top bg-magenta flex-md-nowrap p-0 shadow">
-        <a class="navbar-nav col-sm-3 col-md-2 mr-0" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/logo2.svg" />
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white mr-2" id="sidenav-main">
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <a class="navbar-brand pt-0" asp-controller="Home" asp-action="Index">
+            <img src="~/logo.svg" class="navbar-brand-img" alt="...">
         </a>
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button type="submit" class="nav-link btn btn-link">Sign out</button>
-                </form>
-            </li>
-        </ul>
-    </nav>
-    <div class="container-fluid" style="position:relative; top:20px;">
-        <div class="row">
-            <partial name="nav" />
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <partial name="_CookieConsentPartial" />
-                @RenderBody()
-            </main>
+        <!-- User -->
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <img src="~/logo.svg" class="navbar-brand-img">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Dashboard" asp-controller="Home" asp-action="Index">
+                        <i class="ni ni-tv-2 text-primary"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Dashboard" asp-controller="Links" asp-action="Index">
+                        <i class="ni ni-single-02 text-yellow"></i> Links
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Dashboard" asp-controller="Home" asp-action="Withdraw">
+                        <i class="ni ni-bullet-list-67 text-red"></i> Withdraw
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Dashboard" asp-controller="PayoutRequests" asp-action="Index">
+                        <i class="ni ni-planet text-blue"></i> Payouts
+                    </a>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
+    <main class="main-content px-4">
+        <partial name="_CookieConsentPartial" />
+        @RenderBody()
+    </main>
 
 
     <environment include="Development">

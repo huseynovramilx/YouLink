@@ -9,5 +9,8 @@ namespace LinkShortener.Services
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public int SmtpServerPort { get; set; }
+
+        public string SmtpServerHost { get; set; }
     }
 }

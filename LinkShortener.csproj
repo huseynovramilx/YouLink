@@ -27,6 +27,14 @@
     <Compile Remove="Data\Migrations\20190212040333_PayoutIdDate.Designer.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Areas\Identity\Pages\ForgotPasswordBody.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Areas\Identity\Pages\ForgotPasswordBody.html" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
@@ -46,7 +54,19 @@
 
 
   <ItemGroup>
+    <None Include="wwwroot\ForgotPasswordBody.html" />
+  </ItemGroup>
+
+
+  <ItemGroup>
     <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="wwwroot\logo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

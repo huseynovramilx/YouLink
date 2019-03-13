@@ -7,7 +7,7 @@ namespace LinkShortener.Services
 {
     public class AppOptions
     {
-        public decimal MoneyPerClick { get; set; }
-        public int ReferralPercentage { get; set; }
+        public decimal MoneyPerClick { get; }
+        public int ReferralPercentage { get; }
     }
 }

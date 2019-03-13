@@ -16,6 +16,7 @@ namespace LinkShortener.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
  //   [ValidateAntiForgeryToken]
+ [IgnoreAntiforgeryToken]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;

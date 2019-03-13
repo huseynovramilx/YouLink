@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace LinkShortener.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
+    [IgnoreAntiforgeryToken]
     public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;

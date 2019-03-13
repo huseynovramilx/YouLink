@@ -1,10 +1,22 @@
 ﻿$(document).ready(function () {
     let fullUrl = $("#fullUrl");
-    let btnShort = $("#btnShort");
+    let fullUrl2 = $("#fullUrl2");
+    let btnShort = $(".btnShort");
     let form = $("#formFullUrl");
+
+
     btnShort.click(function () {
+        let link = fullUrl.val();
+        let link2 = fullUrl2.val();
+        if(link.length === 0){
+            fullUrl.val(link2);
+            link = link2;
+        }
+        else{
+            fullUrl2.val(link);
+            link2 = link;
+        }
         if (form.valid()) {
-            let link = fullUrl.val();
             jQuery.ajax({
                 method: "POST",
                 url: "Links/Create",
@@ -14,6 +26,7 @@
                 success: function (id) {
                     let shortLink = window.location.protocol+"//"+window.location.host +"/"+ id;
                     fullUrl.val(shortLink);
+                    fullUrl2.val(shortLink);
                     btnShort.html("Copy");
                     btnShort.off("click");
                     btnShort.click(function () {

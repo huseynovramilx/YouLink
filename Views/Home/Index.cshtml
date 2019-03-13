@@ -2,51 +2,54 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="row m-2 mb-5">
-    <div class="w-100 col-md-12 matthead" >
-        <div class="row position-relative" style="top:50%;">
-            <div class="col-md-6 offset-md-5  pl-5">
-                <form id="formFullUrl" method="post" novalidate="novalidate">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="input-group">
+
+<form id="formFullUrl" method="post" novalidate="novalidate">
+<div class="row m-2 mb-5 d-none d-sm-flex">
+    <div class="col-md-12 matthead d-flex align-items-center justify-content-end" >
+            <div class="w-50 d-block float-right">
+                    <div class="input-group ">
 
                         <input type="text" id="fullUrl" placeholder="Url" asp-for="FullUrl" class="form-control" />
                         <div class="input-group-append">
-                            <button id="btnShort" type="button" class="btn btn-primary">Short</button>
+                            <button type="button" class="btn btn-primary btnShort">Short</button>
                         </div>
                     </div>
-                    <span asp-validation-for="FullUrl" class="text-danger"></span>
-                </form>
             </div>
+    </div>
+</div>
+<div class="jumbotron d-sm-none">
+    <div class="input-group">
+        <input type="text" id="fullUrl2" placeholder="Url" asp-for="FullUrl" class="form-control" />
+        <div class="input-group-append">
+            <button type="button" class="btn btn-primary btnShort">Short</button>
         </div>
     </div>
 </div>
-
+<span asp-validation-for="FullUrl" class="text-danger"></span>
+</form>
 <hr />
 
-<div style="height:300px;" class="card-deck w-100 mx-auto my-5 mb-5">
+<div class="card-deck card-main-deck mx-auto my-5 mb-5">
 
-    <div class="card h-100">
+    <div class="card h-100 p-2">
 
-        <img class="card-img-top h-75 justify-content-center align-self-center my-2" src="~/images/shortenLink.svg" />
+        <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/shortenLink.svg" />
         <div class="card-body">
-
             <h5 class="card-title text-center">shorten links</h5>
         </div>
     </div>
 
-    <div class="card h-100">
+    <div class="card h-100 p-2">
 
-        <img class="card-img-top h-75 justify-content-center align-self-center my-2" src="~/images/earnMoney.svg" />
+        <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/earnMoney.svg" />
         <div class="card-body">
-
             <h5 class="card-title text-center">earn money</h5>
         </div>
     </div>
 
-    <div class="card h-100">
+    <div class="card h-100 p-2">
 
-        <img class="card-img-top h-75 justify-content-center align-self-center my-2" src="~/images/trackLinks.svg" />
+        <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/trackLinks.svg" />
         <div class="card-body">
 
             <h5 class="card-title text-center">track links</h5>

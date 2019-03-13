@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.44 93"><defs><style>.cls-1{font-size:57.5px;}.cls-1,.cls-7{fill:#fff;}.cls-1,.cls-8{font-family:Lora-Bold, Lora;font-weight:700;}.cls-2{letter-spacing:-0.08em;}.cls-3{letter-spacing:-0.01em;}.cls-4{font-size:27px;fill:#58595b;font-family:Merriweather-Regular, Merriweather;}.cls-5{letter-spacing:-0.13em;}.cls-6{letter-spacing:-0.13em;}.cls-8{font-size:45px;fill:#ad7ab5;}</style></defs><title>logo2</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><text class="cls-1" transform="translate(108.03 49.5)"><tspan class="cls-2">Y</tspan><tspan x="33.58" y="0">o</tspan><tspan class="cls-3" x="66.13" y="0">u</tspan><tspan x="101.2" y="0">Link</tspan></text><text class="cls-4" transform="translate(100.83 82.22)">links<tspan class="cls-5" x="65.74" y="0">,</tspan><tspan x="71.41" y="0" xml:space="preserve"> stats</tspan><tspan class="cls-6" x="142.21" y="0">,</tspan><tspan x="147.88" y="0" xml:space="preserve"> money</tspan></text><circle class="cls-7" cx="46.5" cy="46.5" r="46.5"/><text class="cls-8" transform="translate(20.82 53.41) scale(0.99 1)">Y</text><text class="cls-8" transform="translate(44.98 71.41) scale(0.99 1)">L</text></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 346.44 93">
+  <defs>
+    <style>.cls-1{font-size:57.5px;}.cls-1,.cls-7{fill:#fff;}.cls-1,.cls-8{font-family:Lora-Bold, Lora;font-weight:700;}.cls-2{letter-spacing:-0.08em;}.cls-3{letter-spacing:-0.01em;}.cls-4{font-size:27px;fill:#58595b;font-family:Merriweather-Regular, Merriweather;}.cls-5{letter-spacing:-0.13em;}.cls-6{letter-spacing:-0.13em;}.cls-8{font-size:45px;fill:#ad7ab5;}</style>
+  </defs>
+  <title>logo2</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <text class="cls-1" transform="translate(108.03 49.5)">
+        <tspan class="cls-2">Y</tspan>
+        <tspan x="33.58" y="0">o</tspan>
+        <tspan class="cls-3" x="66.13" y="0">u</tspan>
+        <tspan x="101.2" y="0">Link</tspan>
+      </text>
+      <text class="cls-4" transform="translate(100.83 82.22)">
+        links<tspan class="cls-5" x="65.74" y="0">,</tspan><tspan x="71.41" y="0" xml:space="preserve"> stats</tspan><tspan class="cls-6" x="142.21" y="0">,</tspan><tspan x="147.88" y="0" xml:space="preserve"> money</tspan>
+      </text>
+      <circle class="cls-7" cx="46.5" cy="46.5" r="46.5"/>
+      <text class="cls-8" transform="translate(20.82 53.41) scale(0.99 1)">Y</text>
+      <text class="cls-8" transform="translate(44.98 71.41) scale(0.99 1)">L</text>
+    </g>
+  </g>
+</svg>

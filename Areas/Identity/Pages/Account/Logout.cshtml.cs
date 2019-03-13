@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace LinkShortener.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
+    [IgnoreAntiforgeryToken]
     public class LogoutModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
