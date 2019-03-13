@@ -99,3 +99,5 @@ C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Details.g.cshtml.cs
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Edit.g.cshtml.cs
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\Razor\Areas\Dashboard\Views\PayoutRequests\Index.g.cshtml.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\bin\Debug\netcoreapp2.2\wwwroot\ForgotPasswordBody.html
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\bin\Debug\netcoreapp2.2\wwwroot\logo2.png
