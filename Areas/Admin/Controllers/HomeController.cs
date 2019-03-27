@@ -7,7 +7,7 @@ using LinkShortener.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using LinkShortener.Services;
+using LinkShortener.Models;
 using LinkShortener.Models;
 using Microsoft.Extensions.Options;
 

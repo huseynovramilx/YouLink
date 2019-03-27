@@ -1,7 +1,13 @@
 ﻿@page "{referrerId?}"
 @model RegisterModel
 
+@using Microsoft.Extensions.Options
+@using LinkShortener.Models
+
 @using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IOptionsMonitor<AppOptions> Options
+
 
 @inject IViewLocalizer Localizer
 @{
@@ -32,7 +38,7 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <div class="g-recaptcha" data-sitekey="6Lfk_pkUAAAAAH3QqlwsLsIpk3KZWB_6EMjiWhbq"></div>
+            <div class="g-recaptcha" data-sitekey="@Options.CurrentValue.RecaptchaSiteKey"></div>
             <button type="submit" class="btn btn-primary">@Localizer["Register(verb)"]</button>
         </form>
     </div>

@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace LinkShortener.Services
+namespace LinkShortener.Models
 {
     public class EmailSender : IEmailSender
     {

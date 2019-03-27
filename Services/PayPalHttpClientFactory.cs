@@ -8,7 +8,7 @@ using LinkShortener.Areas.Admin.Models;
 using LinkShortener.Models;
 using Newtonsoft.Json;
 
-namespace LinkShortener.Services {
+namespace LinkShortener.Models {
     public class PayPalHttpClientFactory {
         private readonly string _clientId;
         private readonly string _clientSecret;

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using LinkShortener.Data;
 using LinkShortener.Common;
-using LinkShortener.Services;
+using LinkShortener.Models;
 
 namespace LinkShortener.Areas.Identity.Pages.Account
 {

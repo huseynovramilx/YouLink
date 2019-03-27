@@ -1,5 +1,5 @@
 ﻿using LinkShortener.Models;
-using LinkShortener.Services;
+using LinkShortener.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using System;

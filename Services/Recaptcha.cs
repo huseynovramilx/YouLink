@@ -1,4 +1,4 @@
-﻿using LinkShortener.Services;
+﻿using LinkShortener.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
-namespace LinkShortener.Services
+namespace LinkShortener.Models
 {
 
     public class RecaptchaHttpClient

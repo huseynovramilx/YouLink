@@ -1,7 +1,7 @@
 ﻿using LinkShortener.Data;
 using LinkShortener.Models;
 using LinkShortener.Common;
-using LinkShortener.Services;
+using LinkShortener.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
