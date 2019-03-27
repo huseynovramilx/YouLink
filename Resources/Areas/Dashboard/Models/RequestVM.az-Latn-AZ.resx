@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Amount" xml:space="preserve">
-    <value>Miqdar</value>
+    <value>Məbləğ</value>
   </data>
   <data name="Receiver" xml:space="preserve">
-    <value>Ödəniş olunan</value>
+    <value>Alıcı</value>
   </data>
   <data name="Recipient type" xml:space="preserve">
-    <value>Ödənişin növü</value>
+    <value>Ödəniş üsulu</value>
   </data>
 </root>

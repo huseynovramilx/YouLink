@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Change password" xml:space="preserve">
-    <value>Şifreyi değiştir</value>
+  <data name="forgotPassword" xml:space="preserve">
+    <value>Şifrenizi mi unutdunuz?</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Gösterge paneli</value>
+  <data name="login" xml:space="preserve">
+    <value>Oturum aç</value>
   </data>
-  <data name="Payouts" xml:space="preserve">
-    <value>Ödemeler</value>
+  <data name="register" xml:space="preserve">
+    <value>Yeni kullanıcı olarak kayıt olun</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Parayı çek</value>
+  <data name="useAccount" xml:space="preserve">
+    <value>Giriş yapmak için yerel bir hesap kullanın</value>
   </data>
 </root>

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Amount" xml:space="preserve">
-    <value>Miqdar</value>
+    <value>Məbləğ</value>
   </data>
   <data name="Owner" xml:space="preserve">
-    <value>Pulu alan</value>
+    <value>Alıcı</value>
   </data>
   <data name="Paid" xml:space="preserve">
     <value>Ödənilib</value>

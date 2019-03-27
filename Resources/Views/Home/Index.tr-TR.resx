@@ -117,9 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About us" xml:space="preserve">
+    <value>Bizim hakkımızda</value>
+  </data>
   <data name="About us-a" xml:space="preserve">
     <value>Hedefimiz insanları her kesin para kazanmak hak ettdiğine inandırmaktır.
 
 Eğer para kazanmak gibi bir isteğin varsa ailemiz Senin için en iyi seçimdir. Şimdi ücretsiz kayıt ol ve ailemize katıl. Bu gün biz Seni kendi evinden kariyerini sıfırdan yapmak için en kolay yöntemlerden birine davet ediyoruz. Senin başarın bizi de mutlu ediyor.</value>
+  </data>
+  <data name="Earn money" xml:space="preserve">
+    <value>Para kazan</value>
+  </data>
+  <data name="Shorten" xml:space="preserve">
+    <value>Kısalt</value>
+  </data>
+  <data name="Shorten links" xml:space="preserve">
+    <value>Linkleri kısalt</value>
+  </data>
+  <data name="Track links" xml:space="preserve">
+    <value>Linkleri takip et</value>
   </data>
 </root>

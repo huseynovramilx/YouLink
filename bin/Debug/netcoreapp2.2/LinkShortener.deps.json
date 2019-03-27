@@ -39,11 +39,11 @@
           "az-Latn-AZ/LinkShortener.resources.dll": {
             "locale": "az-Latn-AZ"
           },
-          "en-US/LinkShortener.resources.dll": {
-            "locale": "en-US"
-          },
           "tr-TR/LinkShortener.resources.dll": {
             "locale": "tr-TR"
+          },
+          "en-US/LinkShortener.resources.dll": {
+            "locale": "en-US"
           }
         },
         "compile": {

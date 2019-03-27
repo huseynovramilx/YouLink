@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Change password" xml:space="preserve">
-    <value>Şifreyi değiştir</value>
+  <data name="Email" xml:space="preserve">
+    <value>E-posta</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
-    <value>Gösterge paneli</value>
+  <data name="Email is required" xml:space="preserve">
+    <value>E-postanızı giriniz</value>
   </data>
-  <data name="Payouts" xml:space="preserve">
-    <value>Ödemeler</value>
+  <data name="Entered email is not valid" xml:space="preserve">
+    <value>Girilen e-posta adresi geçerli değil</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Parayı çek</value>
+  <data name="Password" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="Password is required" xml:space="preserve">
+    <value>Giriş yapmak için şifrenizi girmelisiniz</value>
+  </data>
+  <data name="Remember me?" xml:space="preserve">
+    <value>Beni hatırla</value>
   </data>
 </root>

@@ -72,6 +72,9 @@
 
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Areas\Identity\Pages\Account\Login.tr-TR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Areas\Identity\Pages\Account\Login.az-Latn-AZ.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

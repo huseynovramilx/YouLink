@@ -117,16 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Change password" xml:space="preserve">
-    <value>Şifreyi değiştir</value>
-  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Gösterge paneli</value>
   </data>
-  <data name="Payouts" xml:space="preserve">
-    <value>Ödemeler</value>
+  <data name="Impressions" xml:space="preserve">
+    <value>İzlenim</value>
   </data>
-  <data name="Withdraw" xml:space="preserve">
-    <value>Parayı çek</value>
+  <data name="Links" xml:space="preserve">
+    <value>Linklər</value>
+  </data>
+  <data name="Short url" xml:space="preserve">
+    <value>Kısa url</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>İstatistikler</value>
+  </data>
+  <data name="This day" xml:space="preserve">
+    <value>Bugün</value>
+  </data>
+  <data name="This hour" xml:space="preserve">
+    <value>Bu saat</value>
+  </data>
+  <data name="This month" xml:space="preserve">
+    <value>Bu ay</value>
+  </data>
+  <data name="This week" xml:space="preserve">
+    <value>Bu həftə</value>
+  </data>
+  <data name="This year" xml:space="preserve">
+    <value>Bu yıl</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
   </data>
 </root>
