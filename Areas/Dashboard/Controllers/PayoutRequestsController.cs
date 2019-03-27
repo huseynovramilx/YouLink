@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using LinkShortener.Data;
 using LinkShortener.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LinkShortener.Areas.Dashboard.Controllers
 {
+    [Authorize]
     [Area("Dashboard")]
     public class PayoutRequestsController : Controller
     {

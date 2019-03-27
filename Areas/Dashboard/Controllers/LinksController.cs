@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 namespace LinkShortener.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
-    //[Authorize]
+    [Authorize]
     public class LinksController : Controller
     {
         private readonly ApplicationDbContext _context;
