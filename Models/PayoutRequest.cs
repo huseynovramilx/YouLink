@@ -7,12 +7,14 @@ namespace LinkShortener.Models
     {
         public int ID{get; set;}
         [DataType(DataType.Currency)]
+        [Display(Name = "Amount")]
         public decimal Money{get; set;}
 
         public string OwnerId{get ;set;}
         [ForeignKey("OwnerId")]
+        [Display(Name = "Owner")]
         public virtual ApplicationUser Owner{get; set;}
-
+        [Display(Name = "Paid")]
         public bool Paid{get;set;}
     }
 }

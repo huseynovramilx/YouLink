@@ -1,29 +1,32 @@
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav align-middle">
 @if (SignInManager.IsSignedIn(User))
 {
+    <!--<li class="nav-item">
+        <a  class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@Localizer["Hello"] @(User.Identity.Name.Substring(0, User.Identity.Name.LastIndexOf("@")))!</a>
+    </li>-->
     <li class="nav-item">
-        <a  class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @(User.Identity.Name.Substring(0, User.Identity.Name.LastIndexOf("@")))!</a>
-    </li>
-    <li class="nav-item">
-        <a  class="mag-nav-link nav-link text-dark" asp-area="Dashboard" asp-controller="Home" asp-action="Index" title="Manage">Dashboard</a>
+        <a  class="mag-nav-link nav-link text-dark" asp-area="Dashboard" asp-controller="Home" asp-action="Index" title="Manage">@Localizer["Dashboard"]</a>
     </li>
     <li class="mag-nav-link nav-item ">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link mag-nav-link btn btn-link text-dark">Logout</button>
+            <button  type="submit" class="nav-link mag-nav-link btn btn-link text-dark">@Localizer["Logout"]</button>
         </form>
     </li>
 }
 else
 {
     <li class="nav-item">
-        <a class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@Localizer["Register"]</a>
     </li>
     <li class="nav-item">
-        <a class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="mag-nav-link nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@Localizer["Login"]</a>
     </li>
 }
 </ul>

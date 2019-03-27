@@ -62,8 +62,18 @@ body {
     color: #a875bc !important;
 }
 
-.nav-link {
-    font-family: Lora;
+
+.navbar,
+h1,h2,h3,h4,h5,h6,
+.btn,
+table{
+    font-family: Lora ;
+}
+
+
+p,
+label{
+    font-family:Merriweather;
 }
 
 .card-title {
@@ -74,7 +84,7 @@ body {
 
 footer {
     background-color: #A875BC;
-    color:white;
+    color: white;
 }
 
 .btn-primary {
@@ -110,6 +120,7 @@ footer {
         .show > .btn-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(168, 117, 188, 0.5);
         }
+
 .matthead {
     background-image: url('/images/mattheadBack.png');
     background-size: contain;
@@ -117,53 +128,56 @@ footer {
     height: 100px;
 }
 
-@media(max-width:576px){
-    .matthead{
+@media(max-width:576px) {
+    .matthead {
         height: 171px;
     }
 
-    
-    .card-main-img{
+
+    .card-main-img {
         height: 50%;
     }
-    
-    .card-main-deck{
+
+    .card-main-deck {
         width: 75%;
         height: 400px;
     }
-    
 }
 
-@media(min-width:576px){
-    .matthead{
+@media(min-width:576px) {
+    .matthead {
         height: 171px;
     }
-    
-        
-    .card-main-img{
+
+
+    .card-main-img {
         height: 75%;
     }
-    
-    .card-main-deck{
+
+    .card-main-deck {
         width: 100%;
         height: 250px;
     }
-}
-    
 
-@media(min-width:768px){
-    .matthead{
+    .card-competition-deck{
+        width:100%;
+        height:400px;
+    }
+}
+
+
+@media(min-width:768px) {
+    .matthead {
         height: 228px;
     }
 
-    .nav-link{
-        font-size:14px;
+    .nav-link {
+        font-size: 14px;
     }
-
 }
 
-@media(min-width:992px){
-    .matthead{
+@media(min-width:992px) {
+    .matthead {
         height: 295px;
     }
 
@@ -172,11 +186,10 @@ footer {
     }
 }
 
-@media(min-width:1200px){
-    .matthead{
+@media(min-width:1200px) {
+    .matthead {
         height: 357px;
     }
-
 }
 
 .card-title {
@@ -193,19 +206,39 @@ button.bg-magenta:focus {
     background-color: #A875BC !important;
 }
 
-.sidebar .nav-link{
-    font-size:25px;
+.sidebar .nav-link {
+    font-size: 25px;
 }
 
 .sidebar .nav-link {
     color: #874C9E !important;
 }
 
-.sidebar .nav-link:hover {
-    color: white !important;
-    background-color: #A875BC;
-}
+    .sidebar .nav-link:hover {
+        color: white !important;
+        background-color: #A875BC;
+    }
 
     .sidebar .nav-link:active {
         color: #581B70 !important;
     }
+
+main {
+    margin-top: 100px !important;
+}
+
+.media-icons {
+    border-bottom-left-radius: 3px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+.media-icon {
+    width: 2rem;
+}
+
+.yn{
+    width:32px;
+    height:32px;
+}

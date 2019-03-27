@@ -1,7 +1,11 @@
 ﻿@page "{referrerId?}"
 @model RegisterModel
+
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = Localizer["Register"];
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -9,7 +13,7 @@
 <div class="row">
     <div class="offset-md-4 col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
+            <h4>@Localizer["Create a new account"]</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <input asp-for="Input.ReferrerId" value="@Model.RefererId" hidden="hidden" />
@@ -28,11 +32,13 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <div class="g-recaptcha" data-sitekey="6Lfk_pkUAAAAAH3QqlwsLsIpk3KZWB_6EMjiWhbq"></div>
+            <button type="submit" class="btn btn-primary">@Localizer["Register(verb)"]</button>
         </form>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 }

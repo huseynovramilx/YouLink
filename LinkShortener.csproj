@@ -50,6 +50,7 @@
     <Folder Include="Areas\Dashboard\Data\" />
     <Folder Include="Areas\Dashboard\Models\" />
     <Folder Include="Areas\Dashboard\Views\Shared\" />
+    <Folder Include="Resources\Areas\Dashboard\Views\Shared\" />
   </ItemGroup>
 
 
@@ -67,6 +68,22 @@
     <Content Update="wwwroot\ForgotPasswordBody.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Areas\Identity\Pages\Account\Login.az-Latn-AZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Areas\Identity\Pages\Account\Login.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Home\Index.az-Latn-AZ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Home\Index.en-US.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

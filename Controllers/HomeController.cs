@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LinkShortener.Models;
 using LinkShortener.Data;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
 
 namespace LinkShortener.Controllers
 {
@@ -39,6 +41,18 @@ namespace LinkShortener.Controllers
 
                 return View(viewName: "IndexId", model: link.FullUrl);
             }
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return LocalRedirect(returnUrl);
         }
 
         public IActionResult Privacy()

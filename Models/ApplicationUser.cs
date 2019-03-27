@@ -16,7 +16,6 @@ namespace LinkShortener.Models
         {
            
         }
-        private readonly ApplicationDbContext _context;
         public string ReferrerId { get; set; }
 
         [ForeignKey("ReferrerId")]

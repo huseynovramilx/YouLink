@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<LinkShortener.Models.PayoutRequest>
 
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = @Localizer["Payouts"];
 }
 
-<h1>Index</h1>
+<h1>@Localizer["Payouts"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -25,23 +26,19 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Money)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Owner.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paid)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Money)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Owner.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Paid)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

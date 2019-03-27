@@ -1,27 +1,28 @@
-﻿@model List<LinkShortener.Models.Link>
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model List<LinkShortener.Models.Link>
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = Localizer["Dashboard"];
 }
 
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Dashboard</h1>
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1>@Localizer["Dashboard"]</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-        </div>
         <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span data-feather="calendar"></span>
-                <span id="ddText">This hour</span>
+                <span id="ddText">@Localizer["This hour"]</span>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#" data-val="1">This hour</a>
-                <a class="dropdown-item" href="#" data-val="2">This day</a>
-                <a class="dropdown-item" href="#" data-val="3">This week</a>
-                <a class="dropdown-item" href="#" data-val="4">This month</a>
-                <a class="dropdown-item" href="#" data-val="5">This year</a>
+                <a class="dropdown-item" href="#" data-val="1">@Localizer["This hour"]</a>
+                <a class="dropdown-item" href="#" data-val="2">@Localizer["This day"]</a>
+                <a class="dropdown-item" href="#" data-val="3">@Localizer["This week"]</a>
+                <a class="dropdown-item" href="#" data-val="4">@Localizer["This month"]</a>
+                <a class="dropdown-item" href="#" data-val="5">@Localizer["This year"]</a>
             </div>
         </div>
     </div>
@@ -43,15 +44,15 @@
 <canvas class="my-4 w-100 d-none" id="chartMonth" data-loaded="1" width="900" height="380"></canvas>
 <canvas class="my-4 w-100 d-none" id="chartYear" data-loaded="1" width="900" height="380"></canvas>
 
-<h2>Links</h2>
+<h2>@Localizer["Links"]</h2>
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table id="links" class="table table-striped table-sm">
         <thead>
             <tr>
-                <th>Short Url</th>
-                <th>Long Url</th>
-                <th>Clicks</th>
-                <th>Stats</th>
+                <th>@Localizer["Short url"]</th>
+                <th>@Localizer["Url"]</th>
+                <th>@Localizer["Impressions"]</th>
+                <th>@Localizer["Stats"]</th>
             </tr>
         </thead>
         <tbody>

@@ -1,0 +1,55 @@
+﻿@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var selectedCulture = requestCulture.RequestCulture.UICulture;
+
+    var selectedCultureImg = "/images/flags/" + selectedCulture.Name + ".png";
+
+    var selectedCultureText = selectedCulture.DisplayName.Substring(0, selectedCulture.DisplayName.IndexOf("("));
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName.Substring(0, c.DisplayName.IndexOf("(")) })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
+}
+
+<div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+    <form id="selectLanguage" asp-controller="Home"
+          asp-action="SetLanguage" asp-route-returnUrl="@returnUrl"
+          method="post" class="form-horizontal" role="form">
+        <input id="culture" name="culture" type="hidden" />
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <img src="@selectedCultureImg" /> @selectedCultureText
+            </button>
+            <div class="dropdown-menu">
+                @{
+                    foreach (var cultureItem in cultureItems)
+                    {
+                        <a class="dropdown-item" data-value="@cultureItem.Value" href="#"><img src='@("/images/flags/"+cultureItem.Value+".png")' class="align-middle"/> @cultureItem.Text</a>
+                    }
+                }
+            </div>
+        </div>
+
+        <!--<select name="culture" class="dropdown"
+             onchange="this.form.submit();"
+             asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems"></select>-->
+    </form>
+</div>
+    <script>
+        window.onload = function () {
+            let culture = $('#culture');
+            let dropdown = $('.dropdown-item');
+            let form = $('#selectLanguage');
+            dropdown.click(function () {
+                culture.val($(this).data('value'));
+                form.submit();
+            });
+        };
+    </script>

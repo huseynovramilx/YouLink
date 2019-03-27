@@ -36,8 +36,8 @@ namespace LinkShortener.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "Email is required")]
+            [EmailAddress(ErrorMessage = "Entered email is not valid")]
             public string Email { get; set; }
         }
 
