@@ -29,6 +29,10 @@ namespace LinkShortener.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<int>("CurrencyID");
+
+                    b.Property<int?>("DefaultRecipientSettingsID");
+
                     b.Property<decimal>("EarnedMoney");
 
                     b.Property<string>("Email")
@@ -54,8 +58,6 @@ namespace LinkShortener.Data.Migrations
 
                     b.Property<string>("Receiver");
 
-                    b.Property<int?>("RecipientTypeID");
-
                     b.Property<decimal>("ReferralMoney");
 
                     b.Property<string>("ReferrerId");
@@ -71,6 +73,10 @@ namespace LinkShortener.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CurrencyID");
+
+                    b.HasIndex("DefaultRecipientSettingsID");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -78,8 +84,6 @@ namespace LinkShortener.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("RecipientTypeID");
 
                     b.HasIndex("ReferrerId");
 
@@ -102,6 +106,22 @@ namespace LinkShortener.Data.Migrations
                     b.HasIndex("LinkId");
 
                     b.ToTable("Clicks");
+                });
+
+            modelBuilder.Entity("LinkShortener.Models.Currency", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("MoneyPerImpression");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Currencies");
                 });
 
             modelBuilder.Entity("LinkShortener.Models.Link", b =>
@@ -197,21 +217,36 @@ namespace LinkShortener.Data.Migrations
                     b.ToTable("PayoutRequests");
                 });
 
+            modelBuilder.Entity("LinkShortener.Models.RecipientSettings", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Receiver")
+                        .IsRequired();
+
+                    b.Property<int>("RecipientTypeID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("RecipientTypeID");
+
+                    b.ToTable("RecipientSettings");
+                });
+
             modelBuilder.Entity("LinkShortener.Models.RecipientType", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Method")
-                        .IsRequired();
-
                     b.Property<string>("Name")
                         .IsRequired();
 
                     b.HasKey("ID");
 
-                    b.ToTable("RecipientTypes");
+                    b.ToTable("RecipientType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -326,9 +361,14 @@ namespace LinkShortener.Data.Migrations
 
             modelBuilder.Entity("LinkShortener.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("LinkShortener.Models.RecipientType", "RecipientType")
+                    b.HasOne("LinkShortener.Models.Currency", "Currency")
                         .WithMany()
-                        .HasForeignKey("RecipientTypeID");
+                        .HasForeignKey("CurrencyID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LinkShortener.Models.RecipientSettings", "DefaultRecipientSettings")
+                        .WithMany()
+                        .HasForeignKey("DefaultRecipientSettingsID");
 
                     b.HasOne("LinkShortener.Models.ApplicationUser", "Referrer")
                         .WithMany("Referrals")
@@ -363,6 +403,14 @@ namespace LinkShortener.Data.Migrations
                     b.HasOne("LinkShortener.Models.ApplicationUser", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId");
+                });
+
+            modelBuilder.Entity("LinkShortener.Models.RecipientSettings", b =>
+                {
+                    b.HasOne("LinkShortener.Models.RecipientType", "RecipientType")
+                        .WithMany()
+                        .HasForeignKey("RecipientTypeID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

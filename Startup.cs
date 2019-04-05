@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using LinkShortener.Data;
 using LinkShortener.Models;
-using LinkShortener.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -125,7 +124,7 @@ namespace LinkShortener
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            CreateRoles(provider);
+            //CreateRoles(provider);
             app.UseAuthentication();
 
             app.UseMvc(routes =>
@@ -169,7 +168,7 @@ namespace LinkShortener
             {
 
                 UserName = Configuration["AppSettings:Admin:UserName"],
-                Email = Configuration["AppSettings:Admin:Email"],
+                Email = Configuration["AppSettings:Admin:Email"]
             };
             //Ensure you have these values in your appsettings.json file
             string userPWD = Configuration["AppSettings:Admin:Password"];

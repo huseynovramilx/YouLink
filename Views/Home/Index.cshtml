@@ -13,7 +13,7 @@
 @inject IOptionsMonitor<AppOptions> Options
 
 <form id="formFullUrl" method="post" novalidate="novalidate">
-    <div class="row m-2 mb-5 d-none d-sm-flex">
+    <div class="row m-2 mb-1 d-none d-sm-flex">
         <div class="col-md-12 matthead d-flex align-items-center justify-content-end">
             <div class="float-right bg-white p-1 pt-0 media-icons">
                 <a class="p-1" href="#"><img class="media-icon" src="~/images/mediaicons/facebook.png" /></a>
@@ -43,30 +43,30 @@
 </form>
 <hr />
 
-<div class="card-deck card-main-deck mx-auto my-5 mb-5">
+<div class="card-deck card-main-deck mx-auto my-1 mb-5">
 
-    <div class="card h-100 p-2">
+    <div class="card border-primary shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/shortenLink.svg" />
-        <div class="card-body">
-            <h5 class="card-title text-center">@Localizer["Shorten links"]</h5>
+        <div class="card-footer bg-gradient-primary">
+            <h5 class="card-title text-center text-white">@Localizer["Shorten links"]</h5>
         </div>
     </div>
 
-    <div class="card h-100 p-2">
+    <div class="card border-primary shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/earnMoney.svg" />
-        <div class="card-body">
-            <h5 class="card-title text-center">@Localizer["Earn money"]</h5>
+        <div class="card-footer bg-gradient-primary">
+            <h5 class="card-title text-center text-white">@Localizer["Earn money"]</h5>
         </div>
     </div>
 
-    <div class="card h-100 p-2">
+    <div class="card border-primary shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/trackLinks.svg" />
-        <div class="card-body">
+        <div class="card-footer bg-gradient-primary">
 
-            <h5 class="card-title text-center">@Localizer["Track links"]</h5>
+            <h5 class="card-title text-center text-white">@Localizer["Track links"]</h5>
         </div>
     </div>
 
@@ -85,39 +85,39 @@
 <hr />
 <div class="row">
 
-    <div class="offset-xl-2 col-xl-8 offset-sm-2 col-sm-8 offset-1 col-10 text-center">
+    <div class="offset-xl-2 col-xl-8 offset-md-1 col-sm-10 offset-1 col-10 text-center">
         <h2>@Localizer["Why join us?"]</h2>
         <p>
             These are the reasons why you should to prefer our site to our competitors in industry.
         </p>
         <div class="card-deck mx-auto">
-            <div class="card">
-                <img src="~/images/others/logo.png" class="card-img-top mt-2 w-75 justify-content-center align-self-center" alt="...">
+            <div class="card border-primary shadow" style="border-width:2px;">
+                <img src="~/images/others/logo.png" class="card-img-top mt-3 w-75 justify-content-center align-self-center" alt="...">
                 <div class="card-body">
                     <ul class="list-group my-2">
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/yes.svg" />Referral bonus
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/yes.svg" /> Advanced stats for each link
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/yes.svg" />No banning
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="card">
-                <img src="~/images/others/competitor.png" class="card-img-top mt-2 w-75 justify-content-center align-self-center" alt="Our competitor">
+            <div class="card border-secondary" style="border-width:2px;">
+                <img src="~/images/others/competitor.png" class="card-img-top mt-3 w-75 justify-content-center align-self-center" alt="Our competitor">
                 <div class="card-body">
                     <ul class="list-group my-2">
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/no.svg" />Referral bonus
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item  list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/no.svg" /> Advanced stats for each link
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item  list-group-item-primary">
                             <img class="yn align-middle" src="~/images/others/no.svg" />No banning
                         </li>
                     </ul>

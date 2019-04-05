@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "3d2e83bdff2187e0c36f8be78a2248629c19ac29"
+    "signature": "9a0222af6938bd38f5b8a68977ebf417ddaa06a0"
   },
   "compilationOptions": {
     "defines": [
@@ -24,13 +24,15 @@
     ".NETCoreApp,Version=v2.2": {
       "LinkShortener/1.0.0": {
         "dependencies": {
-          "Microsoft.ApplicationInsights.AspNetCore": "2.5.1",
+          "Microsoft.ApplicationInsights.AspNetCore": "2.6.1",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
           "Octicons.TagHelper": "1.0.0",
-          "Sendgrid": "9.10.0"
+          "Sendgrid": "9.10.0",
+          "bootstrap": "4.3.1",
+          "bootstrap.sass": "4.3.1"
         },
         "runtime": {
           "LinkShortener.dll": {}
@@ -50,30 +52,44 @@
           "LinkShortener.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights/2.8.1": {
+      "bootstrap/4.3.1": {
+        "dependencies": {
+          "jQuery": "3.0.0",
+          "popper.js": "1.14.0"
+        }
+      },
+      "bootstrap.sass/4.3.1": {
+        "dependencies": {
+          "jQuery": "3.0.0",
+          "popper.js": "1.14.0"
+        }
+      },
+      "jQuery/3.0.0": {},
+      "Microsoft.ApplicationInsights/2.9.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Diagnostics.StackTrace": "4.3.0",
-          "System.Net.Requests": "4.3.0"
+          "System.Net.Requests": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.ApplicationInsights.dll": {
-            "assemblyVersion": "2.8.1.0",
-            "fileVersion": "2.8.1.22898"
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26108"
           }
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNetCore/2.5.1": {
+      "Microsoft.ApplicationInsights.AspNetCore/2.6.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.8.1",
-          "Microsoft.ApplicationInsights.DependencyCollector": "2.8.1",
-          "Microsoft.ApplicationInsights.PerfCounterCollector": "2.8.1",
-          "Microsoft.ApplicationInsights.WindowsServer": "2.8.1",
-          "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel": "2.8.1",
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.ApplicationInsights.DependencyCollector": "2.9.1",
+          "Microsoft.ApplicationInsights.PerfCounterCollector": "2.9.1",
+          "Microsoft.ApplicationInsights.WindowsServer": "2.9.1",
+          "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel": "2.9.1",
           "Microsoft.AspNetCore.Hosting": "2.2.0",
           "Microsoft.Extensions.Configuration": "2.2.0",
           "Microsoft.Extensions.Configuration.Json": "2.2.0",
@@ -86,17 +102,18 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.ApplicationInsights.AspNetCore.dll": {
-            "assemblyVersion": "2.5.1.0",
-            "fileVersion": "2.5.1.0"
+            "assemblyVersion": "2.6.1.0",
+            "fileVersion": "2.6.1.0"
           }
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.ApplicationInsights.AspNetCore.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.DependencyCollector/2.8.1": {
+      "Microsoft.ApplicationInsights.DependencyCollector/2.9.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.8.1",
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.Extensions.DiagnosticAdapter": "2.2.0",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
           "NETStandard.Library": "2.0.3",
           "System.Data.SqlClient": "4.6.0",
@@ -105,52 +122,58 @@
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {
-            "assemblyVersion": "2.8.1.0",
-            "fileVersion": "2.8.1.19196"
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26132"
           }
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.PerfCounterCollector/2.8.1": {
+      "Microsoft.ApplicationInsights.PerfCounterCollector/2.9.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.8.1",
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.Extensions.Caching.Memory": "2.2.0",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
           "NETStandard.Library": "2.0.3",
           "System.Runtime.Serialization.Json": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.AI.PerfCounterCollector.dll": {
-            "assemblyVersion": "2.8.1.0",
-            "fileVersion": "2.8.1.19196"
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26132"
           }
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.PerfCounterCollector.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsServer/2.8.1": {
+      "Microsoft.ApplicationInsights.WindowsServer/2.9.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.8.1",
+          "Microsoft.ApplicationInsights": "2.9.1",
+          "Microsoft.ApplicationInsights.DependencyCollector": "2.9.1",
+          "Microsoft.ApplicationInsights.PerfCounterCollector": "2.9.1",
+          "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel": "2.9.1",
           "NETStandard.Library": "2.0.3",
+          "System.Diagnostics.DiagnosticSource": "4.5.0",
           "System.Runtime.Serialization.Json": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.AI.WindowsServer.dll": {
-            "assemblyVersion": "2.8.1.0",
-            "fileVersion": "2.8.1.19196"
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26132"
           }
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.WindowsServer.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.8.1": {
+      "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.9.1": {
         "dependencies": {
-          "Microsoft.ApplicationInsights": "2.8.1",
+          "Microsoft.ApplicationInsights": "2.9.1",
           "System.Diagnostics.Process": "4.3.0",
           "System.IO.FileSystem.AccessControl": "4.3.0",
           "System.Net.NetworkInformation": "4.3.0",
@@ -163,8 +186,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AI.ServerTelemetryChannel.dll": {
-            "assemblyVersion": "2.8.1.0",
-            "fileVersion": "2.8.1.22898"
+            "assemblyVersion": "2.9.1.0",
+            "fileVersion": "2.9.1.26108"
           }
         },
         "compile": {
@@ -387,120 +410,120 @@
       },
       "Microsoft.NETCore.Platforms/2.2.0": {},
       "Microsoft.NETCore.Targets/2.0.0": {},
-      "Microsoft.VisualStudio.Web.CodeGeneration/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration/2.2.3": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.2.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.2.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.2.3": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.2.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "2.2.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "2.2.3",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.2.3": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "2.2.1"
+          "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "2.2.3"
         },
         "runtime": {
           "lib/netstandard2.0/dotnet-aspnet-codegenerator-design.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/dotnet-aspnet-codegenerator-design.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.2.3": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Core": "2.2.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Core": "2.2.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.2.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Razor.Language": "2.2.0",
           "Microsoft.CodeAnalysis.CSharp": "2.8.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Utils": "2.2.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Utils": "2.2.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.2.3": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "2.8.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "2.2.1",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "2.2.3",
           "Newtonsoft.Json": "11.0.2",
           "NuGet.Frameworks": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {}
         }
       },
-      "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.2.1": {
+      "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.2.3": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration": "2.2.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration": "2.2.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
-            "assemblyVersion": "2.2.1.0",
-            "fileVersion": "2.2.1.0"
+            "assemblyVersion": "2.2.3.0",
+            "fileVersion": "2.2.3.0"
           }
         },
         "compile": {
@@ -549,6 +572,7 @@
           "lib/netcoreapp1.1/Octicons.TagHelper.dll": {}
         }
       },
+      "popper.js/1.14.0": {},
       "Sendgrid/9.10.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -3931,47 +3955,68 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.ApplicationInsights/2.8.1": {
+    "bootstrap/4.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-39k9QFItF5rALCsyCYT9FWZc1XI71qQ10z3mSEEx09/CzohkJHam/V3hG8SV4NV9DfYP8GR6OCErJXRf8vEMUg==",
-      "path": "microsoft.applicationinsights/2.8.1",
-      "hashPath": "microsoft.applicationinsights.2.8.1.nupkg.sha512"
+      "sha512": "sha512-lrVBeG2vmfwsHJuwSzeXz+1hPn/374vXDOAusU50vzljEWcFOFtif3wzIJJqfqQRHs2RnY0xttZ0Zv5JX4BFGg==",
+      "path": "bootstrap/4.3.1",
+      "hashPath": "bootstrap.4.3.1.nupkg.sha512"
     },
-    "Microsoft.ApplicationInsights.AspNetCore/2.5.1": {
+    "bootstrap.sass/4.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uEPofuo3OBNRuwJEJGm/yihtlK7ymvlAqmyGrKAcbWwYYrGgNjMyx8zfGWtkBUCV2cZlZITNqeN2AIVeiNVVtg==",
-      "path": "microsoft.applicationinsights.aspnetcore/2.5.1",
-      "hashPath": "microsoft.applicationinsights.aspnetcore.2.5.1.nupkg.sha512"
+      "sha512": "sha512-K75hC5YtxsmvSDPiVJNQ3ykH+yrdFyylhbM+dQPHUVUBJk16ZTqKjcTJmgIY9Zmbpqs78fk5K6HV8UCBy22Xjg==",
+      "path": "bootstrap.sass/4.3.1",
+      "hashPath": "bootstrap.sass.4.3.1.nupkg.sha512"
     },
-    "Microsoft.ApplicationInsights.DependencyCollector/2.8.1": {
+    "jQuery/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4DCNjlolFQyIjaGK6Z52kIDcsZIXIB43+XqqNrq4MurBuK2S1GwiZ3VqwgzDC94sTlIq6wdwnFLzEBY0ZNRsxg==",
-      "path": "microsoft.applicationinsights.dependencycollector/2.8.1",
-      "hashPath": "microsoft.applicationinsights.dependencycollector.2.8.1.nupkg.sha512"
+      "sha512": "sha512-xFfntV19HzCtKdJWOp/XT9PUY3SslokTDDLFJZdBug36j1XVhw1+vPQ/n7Gd5y+jdpesn5B1m1yn1qIUq57jlA==",
+      "path": "jquery/3.0.0",
+      "hashPath": "jquery.3.0.0.nupkg.sha512"
     },
-    "Microsoft.ApplicationInsights.PerfCounterCollector/2.8.1": {
+    "Microsoft.ApplicationInsights/2.9.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-63s3ZRb59ZHU4UsolDDvweZj2KKGt6ddB511zDez29F6USJhq0sYZi2/v5KIpKB+9nLPZd1J2YMp0qEpheyqYQ==",
-      "path": "microsoft.applicationinsights.perfcountercollector/2.8.1",
-      "hashPath": "microsoft.applicationinsights.perfcountercollector.2.8.1.nupkg.sha512"
+      "sha512": "sha512-gAC+bFCr10ckAdM6VJ+aL0yfYfbYuklukYJoMjaSCOVHH/h4Xr9SiyPq+Befk/yUSdSv7Fa3nl0ynLATKIwKng==",
+      "path": "microsoft.applicationinsights/2.9.1",
+      "hashPath": "microsoft.applicationinsights.2.9.1.nupkg.sha512"
     },
-    "Microsoft.ApplicationInsights.WindowsServer/2.8.1": {
+    "Microsoft.ApplicationInsights.AspNetCore/2.6.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-STaMIg0XLPnEeTbtKWn3ZV3i+Gc+BEE/t+MJ+1ReQ2jZm/iJsJJlniZFHHtdRbpTm31VYimrjBffhusOA5mC0w==",
-      "path": "microsoft.applicationinsights.windowsserver/2.8.1",
-      "hashPath": "microsoft.applicationinsights.windowsserver.2.8.1.nupkg.sha512"
+      "sha512": "sha512-wp9l6D70tGsGdulnRgCGp3CKBvJr3Q6UvmcO08CqJbLAQNIWIP3bvYQiCc0bYd1gNnn1HFHQiAU+T6wZ1tPphQ==",
+      "path": "microsoft.applicationinsights.aspnetcore/2.6.1",
+      "hashPath": "microsoft.applicationinsights.aspnetcore.2.6.1.nupkg.sha512"
     },
-    "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.8.1": {
+    "Microsoft.ApplicationInsights.DependencyCollector/2.9.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k0qouxglAdnQMCzElWrsRFygFprOPt+FSEfKRtKSN265VAZ5ltI4awzvNHOdcyRyPA6iCnoHxQM+0cNyUTU7aA==",
-      "path": "microsoft.applicationinsights.windowsserver.telemetrychannel/2.8.1",
-      "hashPath": "microsoft.applicationinsights.windowsserver.telemetrychannel.2.8.1.nupkg.sha512"
+      "sha512": "sha512-86Tr5KqRfBFEzmMoh9BKPdTGsIT5fQV8OoGFwvSU+9L9dk22tvRrvTbqXiGyTf6C0SXUX3bV90+7Dp9W5P/MQA==",
+      "path": "microsoft.applicationinsights.dependencycollector/2.9.1",
+      "hashPath": "microsoft.applicationinsights.dependencycollector.2.9.1.nupkg.sha512"
+    },
+    "Microsoft.ApplicationInsights.PerfCounterCollector/2.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4YsaKVRlnzgq7Cw9LH9nZKtYnem5VD5NpO225AAk9u1v2PlD5Pzu5LhJ7PwcdJ212+1ZKBf72Z6gyHGz1bJbIg==",
+      "path": "microsoft.applicationinsights.perfcountercollector/2.9.1",
+      "hashPath": "microsoft.applicationinsights.perfcountercollector.2.9.1.nupkg.sha512"
+    },
+    "Microsoft.ApplicationInsights.WindowsServer/2.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YRq9BF985oKz5OtQI4wntSY/nvm9B5uXcLDNJQCLLcpdLyciQZAdKvegy3yf+LI8mu/7cYc1NrphQaDg9NLasw==",
+      "path": "microsoft.applicationinsights.windowsserver/2.9.1",
+      "hashPath": "microsoft.applicationinsights.windowsserver.2.9.1.nupkg.sha512"
+    },
+    "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/2.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XzQmQY8+i6842v9jINqILqWELMAfzyj4nt4Hyoh83KK9tX8VBpha59rp0+uP2CzLQDwXxxELvKXtaey+RyzZzQ==",
+      "path": "microsoft.applicationinsights.windowsserver.telemetrychannel/2.9.1",
+      "hashPath": "microsoft.applicationinsights.windowsserver.telemetrychannel.2.9.1.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",
@@ -4036,61 +4081,61 @@
       "path": "microsoft.netcore.targets/2.0.0",
       "hashPath": "microsoft.netcore.targets.2.0.0.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rBAJ3or7OzQ+p8h9DTBKSnYUuEB6BJj+YqN3eCruZacZTka8yGvQ52Q9uaoRtm1BRIex/x6Exqvp2p4Ry0cj9w==",
-      "path": "microsoft.visualstudio.web.codegeneration/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.2.2.1.nupkg.sha512"
+      "sha512": "sha512-wc71c9HWTeXy9/w9O4Yr2LKmdJjVyIoJ/XQX8/6uma4EAVU25RLtUWlvhA0gpgFw9Kf1TkCv70x+CbKnRw/d8Q==",
+      "path": "microsoft.visualstudio.web.codegeneration/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i3j9oNK1KN1Bq1CplpGOpMz0EgtkaMH6kOQW0Ezt2AtnRJgEoGocrfMdeLhM9urpgSrTVGCNe04NDY+hxngqfQ==",
-      "path": "microsoft.visualstudio.web.codegeneration.contracts/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.contracts.2.2.1.nupkg.sha512"
+      "sha512": "sha512-wXlpxDfRD5aPypa0p0UE97tkRQvAz9D9FfA2GITzr+LlGIpybyGnxkwGVp0Vha1Ibr0kJG0HdnqfeHME/WuAcQ==",
+      "path": "microsoft.visualstudio.web.codegeneration.contracts/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.contracts.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VFqcDWVl5pJKe0in/OuX0nh5PoNG8/Lj90SkrXbbkjW4ULoW1wrSTfDrbpz7LqTQW4CJhYmjaRaZbOq5A38fhw==",
-      "path": "microsoft.visualstudio.web.codegeneration.core/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.core.2.2.1.nupkg.sha512"
+      "sha512": "sha512-APdPavBUYcGPBaW4rjxBVRePWmg0ZzhIRymOzvLFWUtzfvJKw1+8PaCzsH7Uvl+felm0L1UVQwBx1Do0R7j7Xg==",
+      "path": "microsoft.visualstudio.web.codegeneration.core/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.core.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XUemYH/FWmGkfVjm59sGZlmbBXJyTfo0Oe7FwiN+B6Av0wbuYTHfxQWIRiSslzXtSwU+PYx4STkL5I4Hjmk4CA==",
-      "path": "microsoft.visualstudio.web.codegeneration.design/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.design.2.2.1.nupkg.sha512"
+      "sha512": "sha512-xH50cYOU+infRq4KikBuu2qeXcwW4tE0D5TDfKLuLrEtDm90aXI+0qygPsqyISf+lOW7L7rQ64BH/dRYkK3c3Q==",
+      "path": "microsoft.visualstudio.web.codegeneration.design/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.design.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jZ8rdD00bsliFz7N4nnGhE/9FvT+2+rCmK9CahAfUNTjhmV9FsCq7H+qIur/F/x+aKs7gBa6OGCKSCNp5a5MHg==",
-      "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.entityframeworkcore.2.2.1.nupkg.sha512"
+      "sha512": "sha512-N9S7TeFZjXzNY9OVbz4OFw9cM9oEeMaCnuLFhetNioy/wPwZbgglrctAEYxfDbvocQ17YCAVR2EMRbYHNDHyVg==",
+      "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.entityframeworkcore.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-r6eJ8G0XnyAibK+KrOY8fjPkQPgdF2i3t96mun5FOAgsC0AgH2HZpv6L4zdGaVsDB/6HxHyp8jmOixXY153pCw==",
-      "path": "microsoft.visualstudio.web.codegeneration.templating/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.templating.2.2.1.nupkg.sha512"
+      "sha512": "sha512-sW2lHnOoL1xFnSm/2zSedeUoQPlbhPfWjSuUYsxYUj/N5QmLmH98ZLaqP26k6Om/heR6Gux/veXI96yM1Parow==",
+      "path": "microsoft.visualstudio.web.codegeneration.templating/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.templating.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7XR5vvXQ6JXIkyHVn5wpjtlcQ3r+3OzTATxhBngc+z7qYEL4Y2QKRdaT2IsCHnpZOQl+xro444D9gr3tbuM9fw==",
-      "path": "microsoft.visualstudio.web.codegeneration.utils/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegeneration.utils.2.2.1.nupkg.sha512"
+      "sha512": "sha512-/r/y+XpOpbCwN/M/HopjfGTDRlmixTd4G6HG6FaBkD/YF3T1u+4WMRVtuB6zz7aw571HmX+6UokEa6HJSwkPDA==",
+      "path": "microsoft.visualstudio.web.codegeneration.utils/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegeneration.utils.2.2.3.nupkg.sha512"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.2.1": {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JLomcwxFjDDuN/XqTHAu+D9GXdA2LFDRI2lH8YzJPG7t6o7u3rEG6JNoX/YSlxXwo3pDIAvwKKH2K3w9MevD0w==",
-      "path": "microsoft.visualstudio.web.codegenerators.mvc/2.2.1",
-      "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.2.1.nupkg.sha512"
+      "sha512": "sha512-0gVuA4KUCHFM4M/9SjG+7j7BzZ7SW/BufF97Q78i2VV8JBbQXc/5Rf6YUG1VGW2fwSEOl9+S26utEGS+86GGGw==",
+      "path": "microsoft.visualstudio.web.codegenerators.mvc/2.2.3",
+      "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.2.3.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
@@ -4119,6 +4164,13 @@
       "sha512": "sha512-jt9h3y/zojbbVKlyG4HvRTnrHYIG1Vs/RQK97/5K2tPcJjV7i8gN8eDnKMJbG556icCmjWM16B6uEuNuA2jN5A==",
       "path": "octicons.taghelper/1.0.0",
       "hashPath": "octicons.taghelper.1.0.0.nupkg.sha512"
+    },
+    "popper.js/1.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SPxZdXknelgQ015wey7GMZvsVdt/SyEmHYORhEp5k/uF9MUk9DPtkn+6dR98fud2hVWJjZm9KKr474+r7WQt+A==",
+      "path": "popper.js/1.14.0",
+      "hashPath": "popper.js.1.14.0.nupkg.sha512"
     },
     "Sendgrid/9.10.0": {
       "type": "package",

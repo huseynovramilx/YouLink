@@ -14,7 +14,10 @@ namespace LinkShortener.Data
     {
         public DbSet<Link> Links { get; set; }
 
+        public DbSet<Currency> Currencies { get; set; }
+
         public DbSet<PayoutRequest> PayoutRequests { get; set; }
+        public DbSet<RecipientSettings> RecipientSettings { get; set; }
         public DbSet<RecipientType> RecipientTypes { get; set; }
         public DbSet<Click> Clicks { get; set; }
 
@@ -39,13 +42,7 @@ namespace LinkShortener.Data
             decimal money = await Users.Where(u => u.ReferrerId == userId).SumAsync(u => u.EarnedMoney * percentage / 100);
             return money;
         }
-
-        public async Task<decimal> GetRequestedMoneyAsync(string userId)
-        {
-            decimal money = await PayoutRequests.
-            Where(p => p.OwnerId == userId).SumAsync(p => p.Money);
-            return money;
-        }
+        
 
         public async Task<decimal> GetBalanceAsync(string userId)
         {
@@ -104,15 +101,16 @@ namespace LinkShortener.Data
 
         }
 
-        public async Task AddRandomClickAsync(string linkId, decimal moneyPerClick, int percentage)
+        public async Task AddRandomClickAsync(string linkId, int percentage)
         {
             Random r = new Random();
-            Link link = await Links.FirstOrDefaultAsync(l => l.Id == linkId);
+            Link link = await Links.Include(l=>l.Owner).Include(l => l.Owner.Currency).FirstOrDefaultAsync(l => l.Id == linkId);
             link.Clicks.Add(new Click
             {
                 DateTime = DateTime.Now.AddMinutes(-r.Next() % 60),
                 LinkId = linkId
             });
+            decimal moneyPerClick = link.Owner.Currency.MoneyPerImpression;
             link.Owner.EarnedMoney += moneyPerClick;
             if (link.Owner.ReferrerId != null)
             {

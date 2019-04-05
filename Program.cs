@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using LinkShortener.Data;
 using LinkShortener.Models;
-using LinkShortener.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -29,7 +28,7 @@ namespace LinkShortener
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var options = services.GetRequiredService<IOptionsMonitor<AppOptions>>();
-                    ///DbInitializer.Initialize(context, userManager, options);
+                    DbInitializer.Initialize(context, userManager, options);
                 }
                 catch (Exception ex)
                 {

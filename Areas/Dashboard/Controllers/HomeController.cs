@@ -52,7 +52,7 @@ namespace LinkShortener.Areas.Dashboard.Controllers
             string userId = _userManager.GetUserId(User);
 
             DateTime first = DateTime.Now.AddHours(-1);
-        
+
             var clicks = await _context.GetLastHourClicksAsync(linkId, userId, first);
 
             return Json(clicks);
@@ -108,19 +108,15 @@ namespace LinkShortener.Areas.Dashboard.Controllers
                 new PaymentMethods("~/xml");
             ApplicationUser user = _userManager.GetUserAsync(User).Result;
             RequestVM requestVM = new RequestVM();
-            if (user.RecipientType is null)
+            if (!(user.DefaultRecipientSettings is null))
             {
-
-            }
-            else
-            {
-                requestVM.RecipientTypeID = user.RecipientType.ID;
+                requestVM.RecipientTypeID = user.DefaultRecipientSettings.ID;
                 requestVM.Receiver = user.Receiver;
             }
-            ViewBag.RecipientTypeId = _context.RecipientTypes
+            ViewBag.RecipientTypeId = _context.RecipientSettings
             .Select(rt => new SelectListItem
             {
-                Text = rt.Name,
+                Text = rt.RecipientType.Name,
                 Value = rt.ID.ToString()
             });
             return View(requestVM);
@@ -129,20 +125,25 @@ namespace LinkShortener.Areas.Dashboard.Controllers
         [HttpPost]
         public async Task<IActionResult> Withdraw(RequestVM requestVM)
         {
+            ApplicationUser user = await _userManager.GetUserAsync(User);
             if (ModelState.IsValid)
             {
-                ApplicationUser user = await _userManager.GetUserAsync(User);
                 decimal money = await _context.GetBalanceAsync(user.Id);
                 if (money >= requestVM.Money)
                 {
-                    user.Receiver = requestVM.Receiver;
-                    user.RecipientType = await _context.RecipientTypes
-                    .FirstAsync(rt => rt.ID == requestVM.RecipientTypeID);
+                    RecipientType recipient = await _context.RecipientTypes.FirstAsync(r => r.ID == requestVM.RecipientTypeID);
+                    RecipientSettings recipientSettings = new RecipientSettings
+                    {
+                        Owner = user,
+                        Receiver = requestVM.Receiver,
+                        RecipientType = recipient
+                    };
+                    user.DefaultRecipientSettings = recipientSettings;
 
                     PayoutRequest payoutRequest = new PayoutRequest
                     {
                         Money = requestVM.Money,
-                        OwnerId = user.Id,
+                        RecipientSettings = recipientSettings,
                         Paid = false
                     };
                     await _context.PayoutRequests.AddAsync(payoutRequest);
@@ -151,10 +152,20 @@ namespace LinkShortener.Areas.Dashboard.Controllers
                 }
                 else
                 {
-
+                    ModelState.AddModelError(string.Empty, "You do not have enough money");
                 }
             }
-
+            if (!(user.DefaultRecipientSettings is null))
+            {
+                requestVM.RecipientTypeID = user.DefaultRecipientSettings.ID;
+                requestVM.Receiver = user.Receiver;
+            }
+            ViewBag.RecipientTypeId = _context.RecipientSettings
+            .Select(rt => new SelectListItem
+            {
+                Text = rt.RecipientType.Name,
+                Value = rt.ID.ToString()
+            });
             return View(requestVM);
         }
 

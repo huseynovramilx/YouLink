@@ -27,7 +27,12 @@ namespace LinkShortener.Models
         [InverseProperty("Owner")]
         public virtual ICollection<Link> Links { get; private set; }
 
-        public RecipientType RecipientType{get; set;}
+        [InverseProperty("Owner")]
+        public RecipientSettings DefaultRecipientSettings{get; set;}
+
+        [Required]
+        public Currency Currency { get; set; }
+
         public string Receiver{get ;set;}
         [DataType(DataType.Currency)]
         public decimal EarnedMoney { get; set; }

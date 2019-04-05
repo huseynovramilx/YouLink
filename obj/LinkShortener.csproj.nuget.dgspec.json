@@ -14,11 +14,13 @@
         "outputPath": "C:\\Users\\husey\\source\\repos\\LinkShortener\\LinkShortener\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\husey\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -43,7 +45,7 @@
           "dependencies": {
             "Microsoft.ApplicationInsights.AspNetCore": {
               "target": "Package",
-              "version": "[2.5.1, )"
+              "version": "[2.6.1, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -64,7 +66,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[2.2.1, )"
+              "version": "[2.2.3, )"
             },
             "Octicons.TagHelper": {
               "target": "Package",
@@ -73,6 +75,14 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.10.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "bootstrap.sass": {
+              "target": "Package",
+              "version": "[4.3.1, )"
             }
           },
           "imports": [

@@ -9,11 +9,11 @@
     <title>@ViewData["Title"] - LinkShortener</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/scss/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
@@ -40,25 +40,25 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white mr-2" id="sidenav-main">
+    <nav class="navbar px-0 shadow navbar-vertical bg-primary fixed-left navbar-expand-sm navbar-dark mr-2" id="sidenav-main">
 
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" asp-controller="Home" asp-action="Index">
-            <img src="~/logo.svg" class="navbar-brand-img" alt="...">
+        <a class="navbar-brand py-3 mx-0 border-bottom d-none d-sm-block" asp-controller="Home" asp-action="Index">
+            <img src="~/logo2.svg" width="300" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
             <!-- Collapse header -->
-            <div class="navbar-collapse-header d-md-none">
+            <div class="navbar-collapse-header d-sm-none">
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="~/logo.svg" class="navbar-brand-img">
+                            <img src="~/logo2.svg" class="navbar-brand-img">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">

@@ -1,0 +1,12 @@
+﻿@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+
+$magenta: #874C9E;
+
+$enable-gradients: true;
+
+$primary: $magenta;
+
+
+@import "../bootstrap/scss/bootstrap.scss";

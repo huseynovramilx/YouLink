@@ -77,7 +77,6 @@ label{
 }
 
 .card-title {
-    color: #a875bc !important;
     font-family: Merriweather;
     font-size: 20px;
 }
@@ -87,7 +86,7 @@ footer {
     color: white;
 }
 
-.btn-primary {
+/*.btn-primary {
     color: #fff;
     background-color: #a875bc;
     border-color: #a875bc;
@@ -119,7 +118,7 @@ footer {
         .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
         .show > .btn-primary.dropdown-toggle:focus {
             box-shadow: 0 0 0 0.2rem rgba(168, 117, 188, 0.5);
-        }
+        }*/
 
 .matthead {
     background-image: url('/images/mattheadBack.png');
@@ -192,9 +191,6 @@ footer {
     }
 }
 
-.card-title {
-    color: #581B70;
-}
 
 .bg-magenta {
     background-color: #A875BC !important;

@@ -9,11 +9,8 @@ namespace LinkShortener.Models
         [DataType(DataType.Currency)]
         [Display(Name = "Amount")]
         public decimal Money{get; set;}
-
-        public string OwnerId{get ;set;}
-        [ForeignKey("OwnerId")]
-        [Display(Name = "Owner")]
-        public virtual ApplicationUser Owner{get; set;}
+        [Required]
+        public RecipientSettings RecipientSettings { get; set; }
         [Display(Name = "Paid")]
         public bool Paid{get;set;}
     }
