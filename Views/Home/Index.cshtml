@@ -16,10 +16,12 @@
     <div class="row m-2 mb-1 d-none d-sm-flex">
         <div class="col-md-12 matthead d-flex align-items-center justify-content-end">
             <div class="float-right bg-white p-1 pt-0 media-icons">
-                <a class="p-1" href="#"><img class="media-icon" src="~/images/mediaicons/facebook.png" /></a>
-                <a class="p-1" href="#"><img class="media-icon" src="~/images/mediaicons/instagram.png" /></a>
-                <a class="p-1" href="#"><img class="media-icon" src="~/images/mediaicons/twitter.png" /></a>
-            </div>
+                <div class="input-group">
+                    <a class="p-1 btn-outline-secondary" href="#"><img class="media-icon" src="~/images/mediaicons/facebook.png" /></a>
+                    <a class="p-1 btn-outline-secondary" href="#"><img class="media-icon" src="~/images/mediaicons/instagram.png" /></a>
+                    <a class="p-1 btn-outline-secondary" href="#"><img class="media-icon" src="~/images/mediaicons/twitter.png" /></a>
+                </div>
+                </div>
             <div class="w-50 d-block float-right">
                 <div class="input-group ">
 
@@ -43,9 +45,9 @@
 </form>
 <hr />
 
-<div class="card-deck card-main-deck mx-auto my-1 mb-5">
+<div class="card-deck card-main-deck mx-auto my-4">
 
-    <div class="card border-primary shadow h-100 mx-4">
+    <div class="card shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/shortenLink.svg" />
         <div class="card-footer bg-gradient-primary">
@@ -53,7 +55,7 @@
         </div>
     </div>
 
-    <div class="card border-primary shadow h-100 mx-4">
+    <div class="card shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/earnMoney.svg" />
         <div class="card-footer bg-gradient-primary">
@@ -61,7 +63,7 @@
         </div>
     </div>
 
-    <div class="card border-primary shadow h-100 mx-4">
+    <div class="card shadow h-100 mx-4">
 
         <img class="card-img-top card-main-img justify-content-center align-self-center my-2" src="~/images/trackLinks.svg" />
         <div class="card-footer bg-gradient-primary">
@@ -143,6 +145,12 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
+<environment include="Development">
     <script src="~/js/CreateLink.js"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/js/CreateLink.min.js"></script>
+</environment>
+    
 }
  

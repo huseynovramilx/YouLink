@@ -12,15 +12,20 @@
     <title>@ViewData["Title"] - YouLink</title>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
-    <environment exclude="Development">
+    <!--<environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/scss/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+    </environment>-->
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/scss/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" />
     </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+    
     @Html.Raw(JavaScriptSnippet.FullScript)
 
     <link rel="apple-touch-icon" sizes="57x57" href="~/favicons/apple-icon-57x57.png">
@@ -57,7 +62,7 @@
                     <partial name="_SelectLanguagePartial" />
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="mag-nav-link nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="aboutUs">@Localizer["About"]</a>
+                            <a class="mag-nav-link nav-link" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="aboutUs">@Localizer["About"]</a>
                         </li>
                     </ul>
                 </div>
@@ -80,6 +85,7 @@
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -94,8 +100,9 @@
                 crossorigin="anonymous"
                 integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
         </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    
 
     @RenderSection("Scripts", required: false)
 </body>
