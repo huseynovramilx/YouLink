@@ -145,3 +145,6 @@ C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\LinkShortener.csprojAssemblyReference.cache
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\bin\Debug\netcoreapp2.2\wwwroot\js\dashboard.min.js
 C:\Users\husey\source\repos\LinkShortener\LinkShortener\bin\Debug\netcoreapp2.2\wwwroot\js\dashboard2.min.js
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\az-Latn-AZ\LinkShortener.resources.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\tr-TR\LinkShortener.resources.cs
+C:\Users\husey\source\repos\LinkShortener\LinkShortener\obj\Debug\netcoreapp2.2\en-US\LinkShortener.resources.cs

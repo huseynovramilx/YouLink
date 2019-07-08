@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using LinkShortener.Data;
 using LinkShortener.Common;
-using LinkShortener.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace LinkShortener.Areas.Identity.Pages.Account
 {
@@ -51,6 +52,8 @@ namespace LinkShortener.Areas.Identity.Pages.Account
 
         public string RefererId { get; set; }
 
+        public List<SelectListItem> Currencies{get; set;}
+
         public class InputModel
         {
             [Required(ErrorMessage = "Email is required")]
@@ -69,13 +72,22 @@ namespace LinkShortener.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [Display(Name = "Currency")]
+            [Required(ErrorMessage = "Specify the currency")]
+            public int CurrencyID { get; set; }
             public string ReferrerId { get; set; }
         }
 
         public void OnGet([FromRoute]string referrerId = null, string returnUrl = null)
         {
+            
             ReturnUrl = returnUrl;
             RefererId = referrerId;
+            Currencies = _context.Currencies.Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = c.ID.ToString()
+            }).ToList();
         }
 
 
@@ -90,7 +102,7 @@ namespace LinkShortener.Areas.Identity.Pages.Account
             {
                 if (ModelState.IsValid)
                 {
-                    var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, ReferrerId = Input.ReferrerId };
+                    var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Currency = _context.Currencies.First(c=> c.ID==Input.CurrencyID), ReferrerId = Input.ReferrerId };
                     var result = await _userManager.CreateAsync(user, Input.Password);
                     if (result.Succeeded)
                     {
@@ -119,7 +131,7 @@ namespace LinkShortener.Areas.Identity.Pages.Account
                     }
                 }
             }
-            if(string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(token))
                 ModelState.AddModelError(string.Empty, "You need to be validated by recaptcha");
 
             // If we got this far, something failed, redisplay form

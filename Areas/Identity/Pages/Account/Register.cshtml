@@ -38,7 +38,13 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.CurrencyID"></label>
+                <select asp-for="Input.CurrencyID" asp-items="Model.Currencies" class="form-control" ></select>
+                <span asp-validation-for="Input.CurrencyID" class="text-danger"></span>
+            </div>
             <div class="g-recaptcha" data-sitekey="@Options.CurrentValue.RecaptchaSiteKey"></div>
+            <br/>
             <button type="submit" class="btn btn-primary">@Localizer["Register(verb)"]</button>
         </form>
     </div>

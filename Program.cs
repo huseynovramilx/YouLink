@@ -28,7 +28,7 @@ namespace LinkShortener
                     var context = services.GetRequiredService<ApplicationDbContext>();
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var options = services.GetRequiredService<IOptionsMonitor<AppOptions>>();
-                    //DbInitializer.Initialize(context, userManager, options);
+                    DbInitializer.Initialize(context, userManager, options);
                 }
                 catch (Exception ex)
                 {

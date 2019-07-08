@@ -14,9 +14,19 @@ namespace LinkShortener.Data
         public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IOptionsMonitor<AppOptions> optionsAccessor)
         {
             context.Database.EnsureCreated();
+
+            context.Currencies.Add(new Currency{ 
+                ID = 1,
+                Name = "Dollar"
+            });
+            context.Currencies.Add(new Currency{
+                ID = 2,
+                Name = "AZN"
+            });
+            context.SaveChanges();
             //UpdateUsers(ref context, optionsAccessor.CurrentValue.MoneyPerClick, optionsAccessor.CurrentValue.ReferralPercentage);
             //context.SaveChanges();
-            List<string> userIds = context.Users.Select(u => u.Id).ToList();
+            //List<string> userIds = context.Users.Select(u => u.Id).ToList();
             //AddUsers(ref context, userManager, userIds);
 
             //List<string> linkIds = context.Links.Select(l => l.Id).ToList();
@@ -24,7 +34,7 @@ namespace LinkShortener.Data
 
             //AddClicks(ref context, linkIds, optionsAccessor.CurrentValue.ReferralPercentage);
 
-            AddPayoutRequests(ref context, userIds);
+            //AddPayoutRequests(ref context, userIds);
         }
 
 
