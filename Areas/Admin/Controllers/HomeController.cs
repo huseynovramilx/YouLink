@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LinkShortener.Models;
-using LinkShortener.Models;
 using Microsoft.Extensions.Options;
 
 namespace LinkShortener.Areas.Admin.Controllers
