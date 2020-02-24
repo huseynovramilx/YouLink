@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace LinkShortener
 {
@@ -32,12 +33,16 @@ namespace LinkShortener
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+               
             });
+
+
 
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(
@@ -106,7 +111,7 @@ namespace LinkShortener
              */
 
 
-            var supportedCultures = new[]
+            /*var supportedCultures = new[]
             {
                 new CultureInfo("en-US"),
                 new CultureInfo("az-Latn-AZ"),
@@ -120,7 +125,10 @@ namespace LinkShortener
                 SupportedCultures = supportedCultures,
                 // UI strings that we have localized.
                 SupportedUICultures = supportedCultures
-            });
+            });*/
+            var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(locOptions.Value);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

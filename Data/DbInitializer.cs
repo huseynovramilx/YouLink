@@ -16,11 +16,9 @@ namespace LinkShortener.Data
             context.Database.EnsureCreated();
 
             context.Currencies.Add(new Currency{ 
-                ID = 1,
                 Name = "Dollar"
             });
             context.Currencies.Add(new Currency{
-                ID = 2,
                 Name = "AZN"
             });
             context.SaveChanges();

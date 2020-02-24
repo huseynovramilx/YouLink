@@ -281,6 +281,7 @@ namespace LinkShortener.Data
         {
             builder.Entity<Link>().HasIndex(l => l.Number).IsUnique();
             builder.Entity<Link>().Property(l => l.Number).HasDefaultValue(1);
+            builder.Entity<Currency>().HasIndex(c => c.Name).IsUnique();
             // builder.Entity<Link>().Property(l => l.Clicks).HasDefaultValue(0);
             base.OnModelCreating(builder);
         }

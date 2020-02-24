@@ -14,19 +14,20 @@ main{
 
 @media (min-width: 768px) {
     .navbar-vertical.navbar-expand-md.fixed-left + .main-content {
-        margin-left: 250px;
+        margin-left: 300px;
+        width:90%;
     }
 }
 
 @media (min-width: 992px) {
     .navbar-vertical.navbar-expand-lg.fixed-left + .main-content {
-        margin-left: 250px;
+        margin-left: 300px;
     }
 }
 
 @media (min-width: 1200px) {
     .navbar-vertical.navbar-expand-xl.fixed-left + .main-content {
-        margin-left: 250px;
+        margin-left: 300px;
     }
 }
 
@@ -85,22 +86,22 @@ main{
 
 @media (min-width: 768px) {
     .navbar-vertical .navbar-collapse {
-        margin-right: -1rem;
-        margin-left: -1rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
         padding-right: 1rem;
         padding-left: 1rem;
     }
 
         .navbar-vertical .navbar-collapse:before {
             display: block;
-            margin: 1rem -1rem;
+            margin: 1rem 1rem;
             content: '';
         }
 }
 
 .navbar-vertical .navbar-nav {
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
     .navbar-vertical .navbar-nav .nav-link {
@@ -198,8 +199,8 @@ main{
 .navbar-vertical.navbar-expand-xs .navbar-collapse {
     display: flex;
     flex-direction: column;
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     flex: 1 1;
@@ -212,8 +213,8 @@ main{
 
 .navbar-vertical.navbar-expand-xs .navbar-nav {
     flex-direction: column;
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
 }
 
     .navbar-vertical.navbar-expand-xs .navbar-nav .nav-link {
@@ -249,8 +250,8 @@ main{
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-user {
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
     padding-top: 1rem;
     padding-right: 1.5rem;
     padding-bottom: 0rem;
@@ -306,10 +307,10 @@ main{
     .navbar-vertical.navbar-expand-sm .navbar-collapse {
         display: flex;
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 0rem;
+        margin-left: 0rem;
         padding-right: 1.5rem;
-        padding-left: 1.5rem;
+        padding-left: 0rem;
         flex: 1 1;
         align-items: stretch;
     }
@@ -320,8 +321,8 @@ main{
 
     .navbar-vertical.navbar-expand-sm .navbar-nav {
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 0rem;
     }
 
         .navbar-vertical.navbar-expand-sm .navbar-nav .nav-link {
@@ -357,8 +358,8 @@ main{
     }
 
     .navbar-vertical.navbar-expand-sm .navbar-user {
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-top: 1rem;
         padding-right: 1.5rem;
         padding-bottom: 0rem;
@@ -415,8 +416,8 @@ main{
     .navbar-vertical.navbar-expand-md .navbar-collapse {
         display: flex;
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
         flex: 1 1;
@@ -429,8 +430,8 @@ main{
 
     .navbar-vertical.navbar-expand-md .navbar-nav {
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
     }
 
         .navbar-vertical.navbar-expand-md .navbar-nav .nav-link {
@@ -466,8 +467,8 @@ main{
     }
 
     .navbar-vertical.navbar-expand-md .navbar-user {
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-top: 1rem;
         padding-right: 1.5rem;
         padding-bottom: 0rem;
@@ -524,8 +525,8 @@ main{
     .navbar-vertical.navbar-expand-lg .navbar-collapse {
         display: flex;
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
         flex: 1 1;
@@ -538,8 +539,8 @@ main{
 
     .navbar-vertical.navbar-expand-lg .navbar-nav {
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
     }
 
         .navbar-vertical.navbar-expand-lg .navbar-nav .nav-link {
@@ -575,8 +576,8 @@ main{
     }
 
     .navbar-vertical.navbar-expand-lg .navbar-user {
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-top: 1rem;
         padding-right: 1.5rem;
         padding-bottom: 0rem;
@@ -628,8 +629,8 @@ main{
     .navbar-vertical.navbar-expand-xl .navbar-collapse {
         display: flex;
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
         flex: 1 1;
@@ -642,8 +643,8 @@ main{
 
     .navbar-vertical.navbar-expand-xl .navbar-nav {
         flex-direction: column;
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
     }
 
         .navbar-vertical.navbar-expand-xl .navbar-nav .nav-link {
@@ -679,8 +680,8 @@ main{
     }
 
     .navbar-vertical.navbar-expand-xl .navbar-user {
-        margin-right: -1.5rem;
-        margin-left: -1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
         padding-top: 1rem;
         padding-right: 1.5rem;
         padding-bottom: 0rem;

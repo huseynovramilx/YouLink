@@ -27,6 +27,10 @@
     <Compile Remove="Data\Migrations\20190212040333_PayoutIdDate.Designer.cs" />
     <Compile Remove="Data\Migrations\20190330024521_CurrencyIdentity.cs" />
     <Compile Remove="Data\Migrations\20190330024521_CurrencyIdentity.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200223162022_UniqueCurrencyName.cs" />
+    <Compile Remove="Data\Migrations\20200223162022_UniqueCurrencyName.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200223162456_UniqueCurrencyName.cs" />
+    <Compile Remove="Data\Migrations\20200223162456_UniqueCurrencyName.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

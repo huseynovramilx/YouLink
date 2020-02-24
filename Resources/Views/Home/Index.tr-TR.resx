@@ -125,8 +125,35 @@
 
 Eğer para kazanmak gibi bir isteğin varsa ailemiz Senin için en iyi seçimdir. Şimdi ücretsiz kayıt ol ve ailemize katıl. Bu gün biz Seni kendi evinden kariyerini sıfırdan yapmak için en kolay yöntemlerden birine davet ediyoruz. Senin başarın bizi de mutlu ediyor.</value>
   </data>
+  <data name="Advanced stats for each link" xml:space="preserve">
+    <value>Her bağlantı için gelişmiş istatistikler</value>
+  </data>
+  <data name="Advanced stats for each link p1" xml:space="preserve">
+    <value>bir saat, bir gün, bir hafta, bir ay ve bir yıldaki gösterim sayısının grafiklerini içerir. Bu istatistikleri</value>
+  </data>
   <data name="Earn money" xml:space="preserve">
     <value>Para kazan</value>
+  </data>
+  <data name="No banning" xml:space="preserve">
+    <value>Ban yok</value>
+  </data>
+  <data name="No banning p1" xml:space="preserve">
+    <value>botları kullanmaya veya kazançlarınızı insanlarla bağlantılarınızı paylaşmaktan başka stratejilerle artırmaya çalışmadığınız sürece.</value>
+  </data>
+  <data name="Referral bonus" xml:space="preserve">
+    <value>Tavsiye bonusu</value>
+  </data>
+  <data name="Referral bonus p1" xml:space="preserve">
+    <value>sitenize davet ettiğinizde kazandığınız ve kazanacağınız bonus paradır. Yönlendirme bağlantınız üzerinden kaydolan kullanıcılar tarafından kazanılan para miktarının</value>
+  </data>
+  <data name="Referral bonus p2" xml:space="preserve">
+    <value>% 'si kazançlarınıza eklenir. Yönlendirme bağlantınızı şurada bulabilirsiniz:</value>
+  </data>
+  <data name="Referral bonus p3" xml:space="preserve">
+    <value>"Gösterge Tablosu" nuzun "Bağlantılar" bölümü</value>
+  </data>
+  <data name="Referral bonus p4" xml:space="preserve">
+    <value>Ne kadar çok kişi davet ederseniz o kadar çok kazanırsınız!</value>
   </data>
   <data name="Shorten" xml:space="preserve">
     <value>Kısalt</value>
@@ -134,7 +161,13 @@ Eğer para kazanmak gibi bir isteğin varsa ailemiz Senin için en iyi seçimdir
   <data name="Shorten links" xml:space="preserve">
     <value>Linkleri kısalt</value>
   </data>
+  <data name="These are the reasons why you should to prefer our site to our competitors in industry." xml:space="preserve">
+    <value>Sitemizi sektördeki rakiplerimize tercih etmeniz gereken nedenler bunlar.</value>
+  </data>
   <data name="Track links" xml:space="preserve">
     <value>Linkleri takip et</value>
+  </data>
+  <data name="Why join us?" xml:space="preserve">
+    <value>Neden bize katılmalı?</value>
   </data>
 </root>

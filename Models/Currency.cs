@@ -17,6 +17,7 @@ namespace LinkShortener.Models
         public string Name { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(14,2)")]
         public decimal MoneyPerImpression { get; set; }
     }
 }

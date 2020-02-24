@@ -35,10 +35,13 @@ namespace LinkShortener.Models
 
         public string Receiver{get ;set;}
         [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(14,2)")]
         public decimal EarnedMoney { get; set; }
 
+        [Column(TypeName = "decimal(14,2)")]
         public decimal RequestedMoney { get; set; }
 
+        [Column(TypeName = "decimal(14,2)")]
         public decimal ReferralMoney { get; set; }
 
     }

@@ -90,7 +90,7 @@
     <div class="offset-xl-2 col-xl-8 offset-md-1 col-sm-10 offset-1 col-10 text-center">
         <h2>@Localizer["Why join us?"]</h2>
         <p>
-            These are the reasons why you should to prefer our site to our competitors in industry.
+            @Localizer["These are the reasons why you should to prefer our site to our competitors in industry."]
         </p>
         <div class="card-deck mx-auto">
             <div class="card border-primary shadow" style="border-width:2px;">
@@ -98,13 +98,13 @@
                 <div class="card-body">
                     <ul class="list-group my-2">
                         <li class="list-group-item list-group-item-primary">
-                            <img class="yn align-middle" src="~/images/others/yes.svg" />Referral bonus
+                            <img class="yn align-middle" src="~/images/others/yes.svg" />@Localizer["Referral bonus"]
                         </li>
                         <li class="list-group-item list-group-item-primary">
-                            <img class="yn align-middle" src="~/images/others/yes.svg" /> Advanced stats for each link
+                            <img class="yn align-middle" src="~/images/others/yes.svg" /> @Localizer["Advanced stats for each link"]
                         </li>
                         <li class="list-group-item list-group-item-primary">
-                            <img class="yn align-middle" src="~/images/others/yes.svg" />No banning
+                            <img class="yn align-middle" src="~/images/others/yes.svg" />@Localizer["No banning"]
                         </li>
                     </ul>
                 </div>
@@ -114,31 +114,30 @@
                 <div class="card-body">
                     <ul class="list-group my-2">
                         <li class="list-group-item list-group-item-secondary">
-                            <img class="yn align-middle" src="~/images/others/no.svg" />Referral bonus
+                            <img class="yn align-middle" src="~/images/others/no.svg" />@Localizer["Referral bonus"]
                         </li>
                         <li class="list-group-item  list-group-item-secondary">
-                            <img class="yn align-middle" src="~/images/others/no.svg" /> Advanced stats for each link
+                            <img class="yn align-middle" src="~/images/others/no.svg" /> @Localizer["Advanced stats for each link"]
                         </li>
                         <li class="list-group-item  list-group-item-secondary">
-                            <img class="yn align-middle" src="~/images/others/no.svg" />No banning
+                            <img class="yn align-middle" src="~/images/others/no.svg" />@Localizer["No banning"]
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
         <hr />
-        <h3 class="mt-4 mb-2">Referral bonus</h3>
+        <h3 class="mt-4 mb-2">@Localizer["Referral bonus"]</h3>
         <p>
-            <strong>Referral bonus</strong> is a bonus money you earn and will earn when you invite others to our site. @Options.CurrentValue.ReferralPercentage % of the amount of the money earned by users who registered through your referral link is added to your earnings. You can find your referral link in <a asp-area="Dashboard" asp-controller="Home" asp-action="Index" asp-fragment="links">"Links" section of your "Dashboard"</a>. <br /><em>The more people you invite, the more you earn!</em>
+            <strong>@Localizer["Referral bonus"]</strong> @Localizer["Referral bonus p1"] @Options.CurrentValue.ReferralPercentage @Localizer["Referral bonus p2"] <a asp-area="Dashboard" asp-controller="Home" asp-action="Index" asp-fragment="links">@Localizer["Referral bonus p3"]</a>. <br /><em>@Localizer["Referral bonus p4"]</em>
         </p>
-        <h3 class="mt-4 mb-2">Advanced stats for each link</h3>
+        <h3 class="mt-4 mb-2">@Localizer["Advanced stats for each link"]</h3>
         <p>
-            <strong>Advanced stats for each link</strong> includes graphs of the number of impressions in an hour, a day, a week, a month and a year. You can see these stats in your <a asp-area="Dashboard" asp-controller="Home" asp-action="Index">Dashboard</a>.
+            <strong>@Localizer["Advanced stats for each link"]</strong> @Localizer["Advanced stats for each link p1"]<a asp-area="Dashboard" asp-controller="Home" asp-action="Index">@Localizer["Dashboard"]</a>.
         </p>
-        <h3 class="mt-4 mb-2">No banning</h3>
+        <h3 class="mt-4 mb-2">@Localizer["No banning"]</h3>
         <p>
-            <strong>No banning</strong> unless you are trying to use bots or increase your earnings with other strategies other than sharing your links to people.
-        </p>
+            <strong>@Localizer["No banning"]</strong> @Localizer["No banning p1"]</p>
     </div>
 </div>
 

@@ -8,6 +8,7 @@ namespace LinkShortener.Models
         public int ID{get; set;}
         [DataType(DataType.Currency)]
         [Display(Name = "Amount")]
+        [Column(TypeName = "decimal(14,2)")]
         public decimal Money{get; set;}
         [Required]
         public RecipientSettings RecipientSettings { get; set; }
