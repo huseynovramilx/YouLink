@@ -71,17 +71,9 @@
             </div>
         </div>
     </section>-->
-    <div class="row mx-0 px-0">
-        <div id="mega" class="col-md-4 mx-0 px-0">
-
-        </div>
-        <div class="col-md-5">
-            <hr />
-        </div>
-        <div id="ultra" class="col-md-3 mx-0 px-0">
-
-        </div>
-    </div>
+    <a href="https://www.grammarly.com/blog/grammarly-write-the-future/">
+        <img src="https://contenthub-static.grammarly.com/blog/wp-content/uploads/2018/05/wtf-437x230.jpg" />
+    </a>
 
     @Html.HiddenFor(m => m, htmlAttributes: new { id = "fullUrl", name = "fullUrl" })
     <environment include="Development">
@@ -105,37 +97,5 @@
         </script>
         <script src="~/js/IndexId.min.js"></script>
     </environment>
-
-
-    <script type="text/javascript">var infolinks_pid = 3170912; var infolinks_wsid = 0;</script>
-    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"></script>
-    <script type="text/javascript">
-        (function () {
-            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
-            var unit = { "calltype": "async[2]", "publisher": "huseynovramil", "width": 550, "height": 250, "sid": "Chitika Default" };
-            var placement_id = window.CHITIKA.units.length;
-            window.CHITIKA.units.push(unit);
-            document.getElementById('mega').innerHTML = ('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-        }());
-    </script>
-    <script type="text/javascript">
-        (function () {
-            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
-            var unit = { "calltype": "async[2]", "publisher": "huseynovramil", "width": 728, "height": 90, "sid": "Chitika Default" };
-            var placement_id = window.CHITIKA.units.length;
-            window.CHITIKA.units.push(unit);
-            document.getElementById('leaderboard').innerHTML = ('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-        }());
-    </script>
-    <script type="text/javascript">
-        (function () {
-            if (window.CHITIKA === undefined) { window.CHITIKA = { 'units': [] }; };
-            var unit = { "calltype": "async[2]", "publisher": "huseynovramil", "width": 300, "height": 600, "sid": "Chitika Default" };
-            var placement_id = window.CHITIKA.units.length;
-            window.CHITIKA.units.push(unit);
-            document.getElementById('ultra').innerHTML = ('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-        }());
-    </script>
-    <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 </body>
 </html>

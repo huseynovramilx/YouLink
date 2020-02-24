@@ -59,7 +59,7 @@
         @{ foreach (var link in Model)
             {
                 <tr>
-                    <td>https://localhost:5001/@link.Id</td>
+                    <td>https://youlink.azurewebsites.net/@link.Id</td>
                     <td style="overflow-wrap:break-word">@link.FullUrl</td>
                     <td>@link.Clicks.Count</td>
                     <td><button onclick="getChart('@link.Id')" class="btn btn-light"><octicon symbol="Graph"></octicon></button></td>
