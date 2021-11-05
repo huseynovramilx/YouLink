@@ -15,12 +15,17 @@ namespace LinkShortener.Data
         {
             context.Database.EnsureCreated();
 
-            context.Currencies.Add(new Currency{ 
-                Name = "Dollar"
-            });
-            context.Currencies.Add(new Currency{
-                Name = "AZN"
-            });
+            if (context.Currencies.Count() == 0)
+            {
+                context.Currencies.Add(new Currency
+                {
+                    Name = "Dollar"
+                });
+                context.Currencies.Add(new Currency
+                {
+                    Name = "AZN"
+                });
+            }
             context.SaveChanges();
             //UpdateUsers(ref context, optionsAccessor.CurrentValue.MoneyPerClick, optionsAccessor.CurrentValue.ReferralPercentage);
             //context.SaveChanges();
@@ -58,12 +63,12 @@ namespace LinkShortener.Data
                     c.SaveChanges();
                 }
             }
-            
+
         }
 
         public static void AddPayoutRequest(ref ApplicationDbContext context, decimal money, string ownerId, bool paid)
         {
-         
+
             RecipientType recipient = context.RecipientTypes.First(r => r.ID == 1);
             ApplicationUser user = context.Users.First(u => u.Id == ownerId);
             RecipientSettings recipientSettings = new RecipientSettings
@@ -171,7 +176,8 @@ namespace LinkShortener.Data
             {
                 Email = email,
                 UserName = email,
-                Currency = new Currency {
+                Currency = new Currency
+                {
                     ID = 1
                 },
                 ReferrerId = referrerId
