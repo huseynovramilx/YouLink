@@ -1,4 +1,2 @@
 # LinkShortener
-Web application for shortening links and adding ads to earn money.
-
-https://youlink.azurewebsites.net/
+Web application for shortening links, managing them and getting data visualization for the each link.
