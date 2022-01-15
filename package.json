@@ -9,7 +9,7 @@
     "handlebars": "^4.1.2",
     "jquery": "^3.4.1",
     "js-yaml": "^3.13.1",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "tar": "^2.2.2",
     "underscore.string": "^3.3.5"
   },
